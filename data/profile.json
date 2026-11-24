@@ -9,8 +9,8 @@
   "copy": {
     "en": {
       "availability": "Looking for a Full-Time Job · Dec 2026 · Paris · Luxembourg · Ireland",
-      "role": "Applied AI, ML & MLOps Engineer",
-      "bio": "I engineer production ML pipelines, low-latency inference services, and automated evaluation & drift guardrails built to hold up outside notebooks.",
+      "role": "Applied AI, ML, MLOps & LLMOps Engineer",
+      "bio": "I engineer end-to-end ML, MLOps & LLMOps systems — from Databricks/MLflow pipelines, NLP & XGBoost modeling, and A/B testing to LLM agents, automated evaluation, and drift guardrails built for production.",
       "nav": {
         "impact": "01 · Impact",
         "experience": "02 · Experience",
@@ -70,8 +70,8 @@
     },
     "fr": {
       "availability": "En recherche d’un poste temps plein · Déc. 2026 · Paris · Luxembourg · Irlande",
-      "role": "Ingénieur IA Appliquée, ML & MLOps",
-      "bio": "Je conçois des pipelines ML en production, des services d’inférence faible latence et des garde-fous automatisés d’évaluation et de drift fiables hors des notebooks.",
+      "role": "Ingénieur IA Appliquée, ML, MLOps & LLMOps",
+      "bio": "Je conçois des systèmes ML, MLOps & LLMOps de bout en bout — pipelines Databricks/MLflow, modélisation NLP & XGBoost, tests A/B, agents LLM, évaluation automatisée et garde-fous de drift prêts pour la production.",
       "nav": {
         "impact": "01 · Impact",
         "experience": "02 · Expérience",
