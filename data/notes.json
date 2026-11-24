@@ -1,0 +1,28 @@
+[
+  {
+    "id": "alert-score-automation-rate",
+    "tag": "Production ML",
+    "read_time": "3 min",
+    "title": {
+      "en": "Alert Score & Automation Rate at 95% Precision (Lessons from 67.6M Industrial Fault Codes)",
+      "fr": "Alert Score & Automation Rate à 95 % de précision (Retours sur 67,6 M de codes de panne)"
+    },
+    "body": {
+      "en": "When classifying industrial equipment fault codes across 56 heterogeneous telemetry sources at Hiboo, standard macro F1 hid the real operational trade-off: missing a critical hydraulic or engine failure is far costlier than flagging a noisy code for review. By pairing a custom Alert Score (weighting critical-fault recall alongside noise precision) with Automation Rate at a strict 95% precision floor, engineering gained a clear production operating point: 65.4% of incoming codes auto-classified by the Databricks pilot, and the remaining low-confidence 34.6% cleanly routed to human experts.",
+      "fr": "Lors de la classification de codes de panne industriels issus de 56 sources hétérogènes chez Hiboo, un macro F1 classique masquait le vrai arbitrage métier : manquer une panne critique coûte bien plus cher qu’envoyer un cas ambigu en revue humaine. En combinant un Alert Score dédié (recall sur pannes critiques + précision sur le bruit) avec l’Automation Rate à un plancher strict de 95 % de précision, l’équipe a obtenu un point de fonctionnement clair en production : 65,4 % des codes classés automatiquement par le pilote Databricks, et les 34,6 % à faible confiance orientés vers revue humaine."
+    }
+  },
+  {
+    "id": "modular-ml-pipelines-ab-testing",
+    "tag": "ML Systems",
+    "read_time": "3 min",
+    "title": {
+      "en": "Why Separating Validation, Features, Training & Inference Pays Off in A/B Tests",
+      "fr": "Pourquoi séparer validation, features, entraînement et inférence paie en test A/B"
+    },
+    "body": {
+      "en": "Across both Tunisie Telecom (+12% recharge conversion) and YSSM Tech (+10% e-commerce conversion), the biggest reliability win did not come from a more exotic model—it came from strict temporal feature hygiene (computing recency, frequency, and average spend strictly prior to prediction time), tracking every threshold calibration in MLflow, and containerizing the scoring API with automated unit and integration tests so offline validation metrics translated cleanly into real A/B lift.",
+      "fr": "Chez Tunisie Telecom (+12 % de conversion sur les recharges) comme chez YSSM Tech (+10 % en e-commerce), le principal gain de fiabilité n’est pas venu d’un modèle plus exotique, mais d’une hygiène temporelle stricte des features (récence, fréquence et montant calculés uniquement avant l’instant de prédiction), du suivi de chaque calibration de seuil dans MLflow et de la conteneurisation Docker de l’API avec tests automatisés pour que les métriques offline se traduisent fidèlement en gain A/B réel."
+    }
+  }
+]

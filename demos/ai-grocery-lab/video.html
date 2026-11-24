@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Grocery Lab — Demo Video</title>
+  <style>
+    :root {
+      --bg: #0b1117;
+      --card: #121b23;
+      --border: rgba(148, 163, 184, 0.22);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 28px 20px 44px;
+    }
+    .wrap {
+      width: 100%;
+      max-width: 1040px;
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .eyebrow {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--emerald);
+      margin-bottom: 4px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--emerald);
+      color: #022c22;
+      border-color: transparent;
+    }
+    .player-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+    }
+    video {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+      background: #000;
+    }
+    .chapters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .chapter-btn {
+      background: rgba(30, 41, 59, 0.72);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 11px;
+      font-size: 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      cursor: pointer;
+    }
+    .chapter-btn:hover { border-color: var(--emerald); }
+    .caption {
+      margin-top: 14px;
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div>
+        <div class="eyebrow">AI GROCERY LAB · LIVE APP RECORDING</div>
+        <h1>3D Supermarket A/B Stockout Recovery Demo</h1>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="./index.html">Open Interactive 3D Replay</a>
+        <a class="btn" href="../../index.html">Back to Portfolio</a>
+      </div>
+    </div>
+
+    <div class="player-card">
+      <video id="demo-video" controls playsinline preload="auto" src="./demo.mp4">
+        Your browser does not support HTML5 MP4 playback.
+      </video>
+      <div class="chapters">
+        <button class="chapter-btn" type="button" data-seek="0">00:00 · 12-Shopper Store Overview</button>
+        <button class="chapter-btn" type="button" data-seek="4.6">00:05 · Group B (B1) Stockout → Replacement → Checkout</button>
+        <button class="chapter-btn" type="button" data-seek="12.6">00:13 · Compare → Group A (A1) Stockout → Abandon</button>
+        <button class="chapter-btn" type="button" data-seek="18.1">00:18 · Final Store Outcomes</button>
+      </div>
+      <p class="caption">
+        Captured directly from the Three.js + FastAPI + Qwen2.5 1.5B application. All 12 shoppers
+        (6 Group A, 6 Group B) shop inside the same supermarket with independent per-trip inventory.
+        Follow matched Pair #1 (vegetarian dinner for two under €15) facing the same sold-out
+        San Marzano tomato sauce. Results represent <strong>checkout performance in a simulation</strong>.
+      </p>
+    </div>
+  </div>
+  <script>
+    const video = document.getElementById("demo-video");
+    function seekTo(sec) {
+      const apply = () => {
+        const clamped = Math.min(Math.max(sec, 0), isFinite(video.duration) ? video.duration : sec);
+        video.currentTime = clamped;
+        video.play().catch(() => {});
+      };
+      if (video.readyState >= 2) {
+        apply();
+      } else {
+        video.addEventListener("canplay", apply, { once: true });
+        video.load();
+      }
+    }
+    document.querySelectorAll("[data-seek]").forEach((btn) => {
+      btn.addEventListener("click", () => seekTo(Number(btn.dataset.seek)));
+    });
+  </script>
+</body>
+</html>

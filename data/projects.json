@@ -1,0 +1,84 @@
+[
+  {
+    "id": "ai-grocery-lab",
+    "category": "genai",
+    "status": "live",
+    "title": {
+      "en": "AI Grocery Lab — 3D Supermarket Agent & Simulated A/B Lab",
+      "fr": "AI Grocery Lab — Agent Supermarché 3D & Test A/B Simulé"
+    },
+    "subtitle": {
+      "en": "Standalone Applied AI System · Three.js + FastAPI + Local Qwen2.5 1.5B",
+      "fr": "Projet IA Appliquée Autonome · Three.js + FastAPI + Qwen2.5 1.5B Local"
+    },
+    "description": {
+      "en": "Problem: stockouts cause shoppers to abandon baskets before checkout. Built a Three.js 3D supermarket hosting 12 matched A/B shoppers with independent per-trip inventory, a FastAPI + SQLite tool-calling backend powered locally by Ollama Qwen2.5 1.5B, and an independent checkout validator (budget, stock, and missing dietary metadata). Tested prompt extraction (n=100) and stockout replacement offers (n=300 matched pairs). Note: public demo runs as an interactive 3D replay of saved runs; fresh LLM requests run locally. Results reflect checkout performance in a simulation.",
+      "fr": "Problème : les ruptures de stock provoquent l’abandon du panier avant le passage en caisse. Conception d’un supermarché 3D Three.js réunissant 12 acheteurs appariés A/B avec inventaire indépendant par trajet, d’un backend FastAPI + SQLite piloté localement par Ollama Qwen2.5 1.5B, et d’un validateur de caisse indépendant (budget, stock, infos diététiques manquantes). Évaluation des prompts (n=100) et des substitutions en rupture (n=300 paires). La démo publique fonctionne en replay 3D interactif ; les requêtes LLM temps réel tournent en local. Résultats mesurés en simulation."
+    },
+    "metrics": [
+      {
+        "label": "Simulated A/B Lift (300 Matched Pairs, B vs A)",
+        "value": "59.0% vs 42.3% (+16.7 pp, 95% CI [+11.5, +21.8])",
+        "pct": 59
+      },
+      {
+        "label": "Prompt Comparison on Qwen2.5 1.5B (100 Held-Out)",
+        "value": "v2 21/100 vs v1 2/100 (+19 pp · 0 budget/qty errors)",
+        "pct": 21
+      },
+      {
+        "label": "Sensitivity Across Shopper Mixes (Simulated)",
+        "value": "Brand-Loyal +7.0 pp · Impatient +19.3 pp",
+        "pct": 70
+      }
+    ],
+    "stack": [
+      "Three.js",
+      "Python",
+      "FastAPI",
+      "SQLite",
+      "Ollama (Qwen2.5 1.5B)",
+      "SQL Analytics",
+      "Paired A/B Testing"
+    ],
+    "code_url": "https://github.com/Firasyazidi/ai-grocery-lab",
+    "demo_url": "./demos/ai-grocery-lab/index.html",
+    "demo_label": {
+      "en": "Live Demo (3D Replay)",
+      "fr": "Démo Live (Replay 3D)"
+    },
+    "video_url": "./demos/ai-grocery-lab/video.html",
+    "adr": {
+      "en": "Architecture & Evaluation Discipline: decoupled frozen shopper rules from the assistant, isolated per-trip inventory copies inside one shared 3D store, enforced independent checkout checks (flagging unlabeled dietary items as unresolved), logged all prompts/tool calls in SQLite, and verified sensitivity across balanced (+16.67 pp), high-brand-loyalty (+7.00 pp), and high-impatience (+19.33 pp) shopper mixes. Live LLM inference runs locally via Ollama; the GitHub Pages demo serves a verified static 3D replay of saved runs.",
+      "fr": "Architecture & Rigueur Expérimentale : règles acheteurs figées et séparées de l’assistant, copies d’inventaire isolées par trajet dans un même magasin 3D, validation indépendante en caisse (signalant les produits sans info diététique), traçabilité SQLite complète et analyse de sensibilité sur 3 profils (+16,67 pts équilibré, +7,00 pts fidélité marque, +19,33 pts impatience). L’inférence LLM tourne en local via Ollama ; la démo GitHub Pages sert un replay 3D statique vérifié."
+    }
+  },
+  {
+    "id": "ai-city-career-hq",
+    "category": "genai",
+    "status": "in_progress",
+    "title": {
+      "en": "AI City — Autonomous Career & ATS CV Platform",
+      "fr": "AI City — Plateforme Autonome de Recherche d’Emploi & CV ATS"
+    },
+    "subtitle": {
+      "en": "Flagship Product · Building in Progress",
+      "fr": "Produit phare · En cours de construction"
+    },
+    "description": {
+      "en": "Local-first AI workspace that aggregates entry-level AI/ML/Data roles, deduplicates verified recruiter contacts per company in SQLite, tracks individualized outreach, and compiles offer-tailored 1-page ATS PDF resumes with verified local project benchmarks.",
+      "fr": "Application IA locale qui agrège les offres junior IA/ML/Data, déduplique les contacts RH vérifiés par entreprise dans SQLite, suit les prises de contact personnalisées et génère des CV PDF 1 page ATS adaptés à chaque offre."
+    },
+    "metrics": [
+      { "label": "Automated Unit & HTTP Suite", "value": "43/43 passing", "pct": 100 },
+      { "label": "ATS 1-Page PDF Pipeline", "value": "FR & EN LaTeX-matched", "pct": 94 }
+    ],
+    "stack": ["Python", "SQLite", "PyMuPDF", "Vanilla JS", "Gmail CLI", "ATS Optimization"],
+    "code_url": "",
+    "demo_url": "",
+    "adr": {
+      "en": "Architecture focus: local-first SQLite state with zero SaaS lock-in, strict anti-fabrication guardrails requiring verified local project metrics before PDF generation, and human-in-the-loop approval before any external outreach.",
+      "fr": "Choix d’architecture : état local SQLite sans dépendance SaaS, garde-fous stricts exigeant des résultats locaux vérifiés avant génération du CV PDF, et validation humaine avant tout envoi externe."
+    }
+  }
+]

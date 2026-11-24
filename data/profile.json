@@ -1,0 +1,133 @@
+{
+  "name": "Mohamed Firas Yazidi",
+  "email": "firasyazidi03@gmail.com",
+  "phone": "+33 7 63 41 94 95",
+  "github": "https://github.com/Firasyazidi",
+  "linkedin": "https://www.linkedin.com/in/mohamed-firas-yazidi-644274287/",
+  "cv_en": "./assets/CV_Firas_Yazidi_EN.pdf",
+  "cv_fr": "./assets/CV_Firas_Yazidi_FR.pdf",
+  "copy": {
+    "en": {
+      "availability": "Looking for a Full-Time Job · Dec 2026 · Paris · Luxembourg · Ireland",
+      "role": "Applied AI, ML & MLOps Engineer",
+      "bio": "I engineer production ML pipelines, low-latency inference services, and automated evaluation & drift guardrails built to hold up outside notebooks.",
+      "nav": {
+        "impact": "01 · Impact",
+        "experience": "02 · Experience",
+        "projects": "03 · Projects",
+        "notes": "04 · Engineering Notes"
+      },
+      "sections": {
+        "impact": "01 · Verified Production Impact",
+        "experience": "02 · Production Experience & Education",
+        "projects": "03 · Flagship Projects",
+        "projects_sub": "Plug-and-play showcase with direct Code & Live Demo links. New flagship systems are actively being built and benchmarked.",
+        "notes": "04 · Engineering Notes"
+      },
+      "buttons": {
+        "cv_en": "Download CV (EN)",
+        "cv_fr": "CV (FR)",
+        "code": "Code",
+        "demo": "Live Demo",
+        "video": "Watch Video",
+        "building": "In Progress",
+        "adr_show": "Architecture ADR",
+        "adr_hide": "Hide ADR",
+        "copied": "Copied to clipboard"
+      },
+      "filters": {
+        "all": "All",
+        "mlops": "MLOps",
+        "genai": "GenAI",
+        "ml": "ML & Data"
+      },
+      "impact": [
+        {
+          "value": "67.6M",
+          "tag": "Databricks",
+          "accent": "emerald",
+          "label": "Industrial fault-code rows audited over 12 months with Python, SQL & Polars (Hiboo)."
+        },
+        {
+          "value": "65.4%",
+          "tag": "@ 95% Precision",
+          "accent": "teal",
+          "label": "Automation Rate achieved on 185 test fault codes (Alert Score 0.847 vs. 47% baseline)."
+        },
+        {
+          "value": "+12%",
+          "tag": "A/B Tested",
+          "accent": "emerald",
+          "label": "Measured conversion lift at Tunisie Telecom via modular XGBoost & MLflow pipeline."
+        },
+        {
+          "value": "+10%",
+          "tag": "Docker API",
+          "accent": "teal",
+          "label": "E-commerce CRM conversion lift at YSSM Tech (Django, PostgreSQL, REST API & tests)."
+        }
+      ]
+    },
+    "fr": {
+      "availability": "En recherche d’un poste temps plein · Déc. 2026 · Paris · Luxembourg · Irlande",
+      "role": "Ingénieur IA Appliquée, ML & MLOps",
+      "bio": "Je conçois des pipelines ML en production, des services d’inférence faible latence et des garde-fous automatisés d’évaluation et de drift fiables hors des notebooks.",
+      "nav": {
+        "impact": "01 · Impact",
+        "experience": "02 · Expérience",
+        "projects": "03 · Projets",
+        "notes": "04 · Notes techniques"
+      },
+      "sections": {
+        "impact": "01 · Impact vérifié en production",
+        "experience": "02 · Expérience professionnelle & Formation",
+        "projects": "03 · Projets phares",
+        "projects_sub": "Vitrine modulaire avec boutons directs Code & Live Demo. De nouveaux projets phares sont en cours de construction et de benchmark.",
+        "notes": "04 · Notes d’ingénierie"
+      },
+      "buttons": {
+        "cv_en": "Télécharger CV (EN)",
+        "cv_fr": "CV (FR)",
+        "code": "Code",
+        "demo": "Live Demo",
+        "video": "Voir la vidéo",
+        "building": "En cours",
+        "adr_show": "Architecture ADR",
+        "adr_hide": "Masquer ADR",
+        "copied": "Copié dans le presse-papiers"
+      },
+      "filters": {
+        "all": "Tous",
+        "mlops": "MLOps",
+        "genai": "GenAI",
+        "ml": "ML & Data"
+      },
+      "impact": [
+        {
+          "value": "67,6 M",
+          "tag": "Databricks",
+          "accent": "emerald",
+          "label": "Occurrences de codes de panne auditées sur 12 mois avec Python, SQL & Polars (Hiboo)."
+        },
+        {
+          "value": "65,4 %",
+          "tag": "@ 95 % Précision",
+          "accent": "teal",
+          "label": "Automation Rate atteint sur 185 codes de test (Alert Score 0,847 vs 47 % baseline)."
+        },
+        {
+          "value": "+12 %",
+          "tag": "Test A/B",
+          "accent": "emerald",
+          "label": "Hausse de conversion mesurée chez Tunisie Telecom via pipeline XGBoost & MLflow."
+        },
+        {
+          "value": "+10 %",
+          "tag": "API Docker",
+          "accent": "teal",
+          "label": "Hausse de conversion sur CRM e-commerce chez YSSM Tech (Django, PostgreSQL, Docker)."
+        }
+      ]
+    }
+  }
+}

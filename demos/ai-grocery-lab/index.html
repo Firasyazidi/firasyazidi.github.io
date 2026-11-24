@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Grocery Lab — 3D Supermarket A/B Simulation</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <!-- Full-viewport Three.js 3D Supermarket Canvas -->
+    <div id="scene-wrap" class="scene-wrap">
+      <canvas id="scene-canvas"></canvas>
+      <div id="badge-layer" class="badge-layer" aria-label="Shopper badges"></div>
+    </div>
+
+    <!-- Top-Left Brand & Mode HUD (matches reference MP4) -->
+    <header class="hud-card hud-top-left">
+      <div class="hud-eyebrow" id="mode-eyebrow">SHOPPING AGENT DEMO · 12 A/B SHOPPERS</div>
+      <div class="hud-title-row">
+        <h1>AI Grocery Lab</h1>
+        <span id="replay-badge" class="pill pill-live" hidden>INTERACTIVE REPLAY</span>
+      </div>
+      <div class="hud-actions">
+        <button id="btn-play" type="button" class="btn btn-emerald">Pause</button>
+        <button id="btn-restart" type="button" class="btn btn-ghost">Restart</button>
+        <button id="btn-overview" type="button" class="btn btn-ghost">Store View</button>
+        <button id="btn-flagship" type="button" class="btn btn-amber">Flagship €15 Pair</button>
+        <button id="btn-experiments" type="button" class="btn btn-ghost">Results</button>
+        <a class="btn btn-ghost" href="./video.html" style="text-decoration:none">Watch MP4</a>
+        <a class="btn btn-ghost" href="../../index.html" style="text-decoration:none">← Portfolio</a>
+      </div>
+    </header>
+
+    <!-- Top-Right Basket / Budget HUD (matches reference MP4) -->
+    <section class="hud-card hud-top-right" aria-live="polite">
+      <div class="hud-eyebrow" id="selected-label">SELECTED SHOPPER · BASKET / BUDGET</div>
+      <div class="budget-row">
+        <span id="basket-budget" class="budget-value">€0.00 / €15.00</span>
+        <span id="group-pill" class="group-pill group-b">B1</span>
+      </div>
+      <div class="store-tally">
+        <span class="tally-a">Group A: <strong id="tally-a">0/6</strong></span>
+        <span class="tally-b">Group B: <strong id="tally-b">0/6</strong></span>
+        <span class="tally-time" id="sim-clock">00.0s</span>
+      </div>
+    </section>
+
+    <!-- Right Collapsible Shopper Inspector Panel -->
+    <aside id="inspector" class="hud-card inspector">
+      <div class="inspector-head">
+        <div>
+          <div class="hud-eyebrow" id="insp-pair">MATCHED PAIR #1</div>
+          <h2 id="insp-name">Loading store…</h2>
+        </div>
+        <button id="btn-compare" type="button" class="btn btn-emerald btn-sm">Compare → A1</button>
+      </div>
+
+      <div class="shopper-chips" id="shopper-chips" aria-label="Select shopper"></div>
+
+      <div class="insp-section">
+        <div class="insp-label">Shopping Request</div>
+        <p id="insp-request" class="insp-text"></p>
+        <div id="insp-constraints" class="constraint-tags"></div>
+      </div>
+
+      <div class="insp-section">
+        <div class="insp-label">Basket (<span id="insp-item-count">0</span> items)</div>
+        <ul id="insp-basket" class="basket-list"></ul>
+      </div>
+
+      <div class="insp-section">
+        <div class="insp-label">Assistant Recommendations &amp; Decisions</div>
+        <div id="insp-recs" class="recs-list"></div>
+      </div>
+
+      <div class="insp-section">
+        <div class="insp-label">Event Log</div>
+        <ol id="insp-events" class="events-list"></ol>
+      </div>
+    </aside>
+
+    <!-- Bottom-Left Live Status Pill & Scrubber (matches reference MP4) -->
+    <footer class="hud-card hud-bottom-left">
+      <div class="status-line">
+        <span id="status-dot" class="status-dot"></span>
+        <span id="status-text">Vegetarian dinner for two · €15 max</span>
+      </div>
+      <div class="scrubber-row">
+        <input id="time-scrubber" type="range" min="0" max="20" step="0.05" value="0" aria-label="Simulation timeline" />
+        <select id="speed-select" aria-label="Playback speed">
+          <option value="0.75">0.75×</option>
+          <option value="1" selected>1×</option>
+          <option value="1.5">1.5×</option>
+          <option value="2.5">2.5×</option>
+        </select>
+      </div>
+    </footer>
+
+    <!-- Experiments Modal (Prompt Comparison + 300-Pair Simulated A/B Results) -->
+    <dialog id="experiments-modal" class="modal">
+      <div class="modal-head">
+        <div>
+          <div class="hud-eyebrow">VERIFIED LOCAL BENCHMARKS · SIMULATED CHECKOUT OUTCOMES</div>
+          <h2>Experiment Results (Qwen2.5 1.5B + 300 Matched Pairs)</h2>
+        </div>
+        <button id="close-experiments" type="button" class="btn btn-ghost btn-sm">Close</button>
+      </div>
+      <div id="experiments-body" class="modal-body">Loading experiment outputs…</div>
+    </dialog>
+
+    <!-- Live Local Ollama Request Modal (hidden in static replay mode) -->
+    <dialog id="llm-modal" class="modal">
+      <div class="modal-head">
+        <div>
+          <div class="hud-eyebrow">LOCAL OLLAMA · QWEN2.5 1.5B</div>
+          <h2>Run a Fresh Shopping Request (Group A vs. Group B)</h2>
+        </div>
+        <button id="close-llm" type="button" class="btn btn-ghost btn-sm">Close</button>
+      </div>
+      <form id="llm-form" class="llm-form">
+        <label>
+          Natural-language shopping request
+          <textarea id="llm-request" rows="3" required>Vegetarian dinner for two under €15: 1 spaghetti, 1 tomato sauce, 1 fresh salad, 1 mozzarella.</textarea>
+        </label>
+        <div class="llm-grid">
+          <label>
+            Prompt version
+            <select id="llm-prompt">
+              <option value="v2_structured_constraints" selected>v2_structured_constraints</option>
+              <option value="v1_minimal">v1_minimal</option>
+            </select>
+          </label>
+          <label>
+            Shopper behavior profile
+            <select id="llm-profile">
+              <option value="budget_conscious">Budget-Conscious</option>
+              <option value="brand_loyal">Brand-Loyal</option>
+              <option value="impatient" selected>Impatient</option>
+              <option value="flexible">Flexible</option>
+            </select>
+          </label>
+          <label>
+            Simulated stockout SKU
+            <select id="llm-stockout">
+              <option value="SAUCE-TOM-01" selected>SAUCE-TOM-01 (Basil Tomato Sauce)</option>
+              <option value="CURRY-COC-01">CURRY-COC-01 (Coconut Curry)</option>
+              <option value="CHILL-TOFU-01">CHILL-TOFU-01 (Smoked Tofu)</option>
+              <option value="">None (all in stock)</option>
+            </select>
+          </label>
+        </div>
+        <div class="llm-actions">
+          <button id="llm-submit" type="submit" class="btn btn-emerald">Parse with Ollama &amp; Simulate Pair</button>
+          <span id="llm-status" class="llm-status"></span>
+        </div>
+      </form>
+      <pre id="llm-output" class="llm-output" hidden></pre>
+    </dialog>
+  </div>
+
+  <script>window.GROCERY_REPLAY_MODE = true;</script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

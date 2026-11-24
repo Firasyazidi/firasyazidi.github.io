@@ -1,0 +1,3786 @@
+{
+  "run_id": "flagship_store_seed_2026",
+  "seed": 2026,
+  "mode": "simulated_store",
+  "model_version": "qwen2.5:1.5b (1.5B Q4_K_M )",
+  "prompt_version": "v2_structured_constraints",
+  "total_duration_sec": 21.3,
+  "summary": {
+    "total_shoppers": 12,
+    "group_a_valid": 1,
+    "group_a_total": 6,
+    "group_b_valid": 3,
+    "group_b_total": 6
+  },
+  "shoppers": [
+    {
+      "trip_id": "flagship_store_seed_2026_A1",
+      "run_id": "flagship_store_seed_2026",
+      "pair_id": 1,
+      "arm": "A",
+      "shopper_id": "A1",
+      "shopper_name": "Lucas",
+      "shirt_color": "#e11d48",
+      "shopper_profile": "impatient",
+      "shopper_profile_label": "Impatient",
+      "request_text": "Vegetarian dinner for two under \u20ac15: spaghetti, tomato sauce, fresh salad, mozzarella, and garlic bread.",
+      "budget_eur": 15.0,
+      "dietary_req": [
+        "vegetarian"
+      ],
+      "preferred_brand": "Nonna Rosa",
+      "prompt_version": "v2_structured_constraints",
+      "model_version": "qwen2.5:1.5b (1.5B Q4_K_M )",
+      "had_stockout": true,
+      "stockout_sku": "SAUCE-TOM-01",
+      "substitute_offered": false,
+      "substitute_accepted": false,
+      "extra_searches": 1,
+      "abandoned": true,
+      "checkout_valid": false,
+      "failure_stage": "stockout_abandon",
+      "failure_reason": "unresolved_stockout:SAUCE-TOM-01",
+      "basket_total_eur": 1.8,
+      "basket": [
+        {
+          "sku": "PASTA-SPAG-01",
+          "name": "Bronze-Die Spaghetti No. 5",
+          "brand": "Nonna Rosa",
+          "subcategory": "pasta",
+          "requested_subcategory": "pasta",
+          "quantity": 1,
+          "unit_price_eur": 1.8,
+          "line_total_eur": 1.8,
+          "substituted_for": null,
+          "color_hex": "#eab308"
+        }
+      ],
+      "recommendations": [],
+      "checkout": {
+        "valid": false,
+        "total_eur": 1.8,
+        "budget_eur": 15.0,
+        "errors": [],
+        "primary_failure": "unresolved_stockout:SAUCE-TOM-01"
+      },
+      "tool_log": [
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "PASTA-SPAG-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "PASTA-SPAG-01",
+            "name": "Bronze-Die Spaghetti No. 5",
+            "exists": true,
+            "available": true,
+            "stock": 20,
+            "price_eur": 1.8
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "PASTA-SPAG-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "PASTA-SPAG-01",
+            "name": "Bronze-Die Spaghetti No. 5",
+            "brand": "Nonna Rosa",
+            "subcategory": "pasta",
+            "requested_subcategory": "pasta",
+            "quantity": 1,
+            "unit_price_eur": 1.8,
+            "line_total_eur": 1.8,
+            "substituted_for": null,
+            "color_hex": "#eab308"
+          }
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "SAUCE-TOM-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "SAUCE-TOM-01",
+            "name": "San Marzano Basil Tomato Sauce",
+            "exists": true,
+            "available": false,
+            "stock": 0,
+            "price_eur": 2.6
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "tomato_sauce",
+            "query": null,
+            "dietary": [
+              "vegetarian"
+            ],
+            "in_stock_only": true
+          },
+          "result_skus": [
+            "SAUCE-TOM-03",
+            "SAUCE-TOM-02"
+          ]
+        }
+      ],
+      "timeline": [
+        {
+          "t": 0.0,
+          "type": "enter_store",
+          "zone": "entrance",
+          "x": -7.4,
+          "z": 4.15,
+          "detail": "Lucas (A) entered AI Grocery Lab",
+          "basket_total": 0.0
+        },
+        {
+          "t": 1.8,
+          "type": "move_to_shelf",
+          "zone": "aisle_1",
+          "x": -2.68,
+          "z": 0.75,
+          "sku": "PASTA-SPAG-01",
+          "detail": "Checking Bronze-Die Spaghetti No. 5 (\u20ac1.80)",
+          "basket_total": 0
+        },
+        {
+          "t": 2.8,
+          "type": "pickup",
+          "zone": "aisle_1",
+          "x": -2.68,
+          "z": 0.75,
+          "sku": "PASTA-SPAG-01",
+          "detail": "Added 1\u00d7 Bronze-Die Spaghetti No. 5 (\u20ac1.80)",
+          "payload": {
+            "color_hex": "#eab308",
+            "price_eur": 1.8
+          },
+          "basket_total": 1.8
+        },
+        {
+          "t": 4.6,
+          "type": "move_to_shelf",
+          "zone": "aisle_1",
+          "x": -2.68,
+          "z": -0.85,
+          "sku": "SAUCE-TOM-01",
+          "detail": "Checking San Marzano Basil Tomato Sauce (\u20ac2.60)",
+          "basket_total": 1.8
+        },
+        {
+          "t": 5.7,
+          "type": "stockout",
+          "zone": "aisle_1",
+          "x": -2.68,
+          "z": -0.85,
+          "sku": "SAUCE-TOM-01",
+          "detail": "Sold out: San Marzano Basil Tomato Sauce (0 in stock)",
+          "basket_total": 1.8
+        },
+        {
+          "t": 7.1,
+          "type": "extra_search",
+          "zone": "aisle_1",
+          "x": -2.33,
+          "z": -0.85,
+          "detail": "Searching aisle independently (attempt 1)",
+          "basket_total": 1.8
+        },
+        {
+          "t": 8.7,
+          "type": "abandon",
+          "zone": "exit",
+          "x": -5.6,
+          "z": 4.15,
+          "detail": "Abandoned trip after stockout on San Marzano Basil Tomato Sauce",
+          "basket_total": 1.8
+        }
+      ],
+      "duration_sec": 9.9,
+      "is_flagship": true,
+      "matched_shopper_id": "B1"
+    },
+    {
+      "trip_id": "flagship_store_seed_2026_B1",
+      "run_id": "flagship_store_seed_2026",
+      "pair_id": 1,
+      "arm": "B",
+      "shopper_id": "B1",
+      "shopper_name": "Claire",
+      "shirt_color": "#14b8a6",
+      "shopper_profile": "impatient",
+      "shopper_profile_label": "Impatient",
+      "request_text": "Vegetarian dinner for two under \u20ac15: spaghetti, tomato sauce, fresh salad, mozzarella, and garlic bread.",
+      "budget_eur": 15.0,
+      "dietary_req": [
+        "vegetarian"
+      ],
+      "preferred_brand": "Nonna Rosa",
+      "prompt_version": "v2_structured_constraints",
+      "model_version": "qwen2.5:1.5b (1.5B Q4_K_M )",
+      "had_stockout": true,
+      "stockout_sku": "SAUCE-TOM-01",
+      "substitute_offered": true,
+      "substitute_accepted": true,
+      "extra_searches": 0,
+      "abandoned": false,
+      "checkout_valid": true,
+      "failure_stage": null,
+      "failure_reason": null,
+      "basket_total_eur": 10.8,
+      "basket": [
+        {
+          "sku": "PASTA-SPAG-01",
+          "name": "Bronze-Die Spaghetti No. 5",
+          "brand": "Nonna Rosa",
+          "subcategory": "pasta",
+          "requested_subcategory": "pasta",
+          "quantity": 1,
+          "unit_price_eur": 1.8,
+          "line_total_eur": 1.8,
+          "substituted_for": null,
+          "color_hex": "#eab308"
+        },
+        {
+          "sku": "SAUCE-TOM-02",
+          "name": "Organic Napoletana Tomato Sauce",
+          "brand": "Verde Campo",
+          "subcategory": "tomato_sauce",
+          "requested_subcategory": "tomato_sauce",
+          "quantity": 1,
+          "unit_price_eur": 2.4,
+          "line_total_eur": 2.4,
+          "substituted_for": "SAUCE-TOM-01",
+          "color_hex": "#ef4444"
+        },
+        {
+          "sku": "PROD-SALAD-01",
+          "name": "Fresh Baby Spinach & Rocket Mix",
+          "brand": "Fermier Local",
+          "subcategory": "salad",
+          "requested_subcategory": "salad",
+          "quantity": 1,
+          "unit_price_eur": 2.2,
+          "line_total_eur": 2.2,
+          "substituted_for": null,
+          "color_hex": "#15803d"
+        },
+        {
+          "sku": "CHILL-MOZZ-01",
+          "name": "Fresh Mozzarella Di Bufala",
+          "brand": "Casa Sole",
+          "subcategory": "cheese",
+          "requested_subcategory": "cheese",
+          "quantity": 1,
+          "unit_price_eur": 2.5,
+          "line_total_eur": 2.5,
+          "substituted_for": null,
+          "color_hex": "#f8fafc"
+        },
+        {
+          "sku": "BREAD-GARLIC-01",
+          "name": "Herb & Garlic Baguette",
+          "brand": "Boulangerie Nord",
+          "subcategory": "bread",
+          "requested_subcategory": "bread",
+          "quantity": 1,
+          "unit_price_eur": 1.9,
+          "line_total_eur": 1.9,
+          "substituted_for": null,
+          "color_hex": "#d97706"
+        }
+      ],
+      "recommendations": [
+        {
+          "sold_out_sku": "SAUCE-TOM-01",
+          "offered_sku": "SAUCE-TOM-02",
+          "offered_name": "Organic Napoletana Tomato Sauce",
+          "offered_price_eur": 2.4,
+          "accepted": true,
+          "reason": "flagship_accepted"
+        }
+      ],
+      "checkout": {
+        "valid": true,
+        "total_eur": 10.8,
+        "budget_eur": 15.0,
+        "errors": [],
+        "primary_failure": null
+      },
+      "tool_log": [
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "PASTA-SPAG-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "PASTA-SPAG-01",
+            "name": "Bronze-Die Spaghetti No. 5",
+            "exists": true,
+            "available": true,
+            "stock": 20,
+            "price_eur": 1.8
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "PASTA-SPAG-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "PASTA-SPAG-01",
+            "name": "Bronze-Die Spaghetti No. 5",
+            "brand": "Nonna Rosa",
+            "subcategory": "pasta",
+            "requested_subcategory": "pasta",
+            "quantity": 1,
+            "unit_price_eur": 1.8,
+            "line_total_eur": 1.8,
+            "substituted_for": null,
+            "color_hex": "#eab308"
+          }
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "SAUCE-TOM-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "SAUCE-TOM-01",
+            "name": "San Marzano Basil Tomato Sauce",
+            "exists": true,
+            "available": false,
+            "stock": 0,
+            "price_eur": 2.6
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "tomato_sauce",
+            "query": null,
+            "dietary": [
+              "vegetarian"
+            ],
+            "in_stock_only": true
+          },
+          "result_skus": [
+            "SAUCE-TOM-03",
+            "SAUCE-TOM-02"
+          ]
+        },
+        {
+          "tool": "find_substitute",
+          "args": {
+            "sold_out_sku": "SAUCE-TOM-01",
+            "dietary": [
+              "vegetarian"
+            ],
+            "max_unit_price": 13.2
+          },
+          "result": {
+            "sku": "SAUCE-TOM-02",
+            "name": "Organic Napoletana Tomato Sauce",
+            "price_eur": 2.4
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "SAUCE-TOM-02",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "SAUCE-TOM-02",
+            "name": "Organic Napoletana Tomato Sauce",
+            "brand": "Verde Campo",
+            "subcategory": "tomato_sauce",
+            "requested_subcategory": "tomato_sauce",
+            "quantity": 1,
+            "unit_price_eur": 2.4,
+            "line_total_eur": 2.4,
+            "substituted_for": "SAUCE-TOM-01",
+            "color_hex": "#ef4444"
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "salad",
+            "query": "baby spinach salad",
+            "dietary": [
+              "vegetarian"
+            ],
+            "in_stock_only": false
+          },
+          "result_skus": [
+            "PROD-SALAD-01",
+            "PROD-SALAD-02"
+          ]
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "PROD-SALAD-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "PROD-SALAD-01",
+            "name": "Fresh Baby Spinach & Rocket Mix",
+            "exists": true,
+            "available": true,
+            "stock": 16,
+            "price_eur": 2.2
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "PROD-SALAD-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "PROD-SALAD-01",
+            "name": "Fresh Baby Spinach & Rocket Mix",
+            "brand": "Fermier Local",
+            "subcategory": "salad",
+            "requested_subcategory": "salad",
+            "quantity": 1,
+            "unit_price_eur": 2.2,
+            "line_total_eur": 2.2,
+            "substituted_for": null,
+            "color_hex": "#15803d"
+          }
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "CHILL-MOZZ-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "CHILL-MOZZ-01",
+            "name": "Fresh Mozzarella Di Bufala",
+            "exists": true,
+            "available": true,
+            "stock": 15,
+            "price_eur": 2.5
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "CHILL-MOZZ-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "CHILL-MOZZ-01",
+            "name": "Fresh Mozzarella Di Bufala",
+            "brand": "Casa Sole",
+            "subcategory": "cheese",
+            "requested_subcategory": "cheese",
+            "quantity": 1,
+            "unit_price_eur": 2.5,
+            "line_total_eur": 2.5,
+            "substituted_for": null,
+            "color_hex": "#f8fafc"
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "bread",
+            "query": "garlic baguette",
+            "dietary": [
+              "vegetarian"
+            ],
+            "in_stock_only": false
+          },
+          "result_skus": [
+            "BREAD-GARLIC-01",
+            "BREAD-SOUR-01",
+            "BREAD-GF-01"
+          ]
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "BREAD-GARLIC-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "BREAD-GARLIC-01",
+            "name": "Herb & Garlic Baguette",
+            "exists": true,
+            "available": true,
+            "stock": 12,
+            "price_eur": 1.9
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "BREAD-GARLIC-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "BREAD-GARLIC-01",
+            "name": "Herb & Garlic Baguette",
+            "brand": "Boulangerie Nord",
+            "subcategory": "bread",
+            "requested_subcategory": "bread",
+            "quantity": 1,
+            "unit_price_eur": 1.9,
+            "line_total_eur": 1.9,
+            "substituted_for": null,
+            "color_hex": "#d97706"
+          }
+        },
+        {
+          "tool": "validate_checkout",
+          "result": {
+            "valid": true,
+            "total_eur": 10.8,
+            "budget_eur": 15.0,
+            "errors": [],
+            "primary_failure": null
+          }
+        }
+      ],
+      "timeline": [
+        {
+          "t": 0.2,
+          "type": "enter_store",
+          "zone": "entrance",
+          "x": -7.4,
+          "z": 5.05,
+          "detail": "Claire (B) entered AI Grocery Lab",
+          "basket_total": 0.0
+        },
+        {
+          "t": 2.0,
+          "type": "move_to_shelf",
+          "zone": "aisle_1",
+          "x": -2.12,
+          "z": 0.75,
+          "sku": "PASTA-SPAG-01",
+          "detail": "Checking Bronze-Die Spaghetti No. 5 (\u20ac1.80)",
+          "basket_total": 0
+        },
+        {
+          "t": 3.0,
+          "type": "pickup",
+          "zone": "aisle_1",
+          "x": -2.12,
+          "z": 0.75,
+          "sku": "PASTA-SPAG-01",
+          "detail": "Added 1\u00d7 Bronze-Die Spaghetti No. 5 (\u20ac1.80)",
+          "payload": {
+            "color_hex": "#eab308",
+            "price_eur": 1.8
+          },
+          "basket_total": 1.8
+        },
+        {
+          "t": 4.8,
+          "type": "move_to_shelf",
+          "zone": "aisle_1",
+          "x": -2.12,
+          "z": -0.85,
+          "sku": "SAUCE-TOM-01",
+          "detail": "Checking San Marzano Basil Tomato Sauce (\u20ac2.60)",
+          "basket_total": 1.8
+        },
+        {
+          "t": 5.9,
+          "type": "stockout",
+          "zone": "aisle_1",
+          "x": -2.12,
+          "z": -0.85,
+          "sku": "SAUCE-TOM-01",
+          "detail": "Sold out: San Marzano Basil Tomato Sauce (0 in stock)",
+          "basket_total": 1.8
+        },
+        {
+          "t": 7.0,
+          "type": "substitute_offered",
+          "zone": "aisle_1",
+          "x": -1.52,
+          "z": -0.85,
+          "sku": "SAUCE-TOM-02",
+          "detail": "Assistant suggested Organic Napoletana Tomato Sauce (\u20ac2.40)",
+          "basket_total": 1.8
+        },
+        {
+          "t": 8.0,
+          "type": "substitute_accepted",
+          "zone": "aisle_1",
+          "x": -1.52,
+          "z": -0.85,
+          "sku": "SAUCE-TOM-02",
+          "detail": "Accepted substitute: Organic Napoletana Tomato Sauce (\u20ac2.40)",
+          "payload": {
+            "color_hex": "#ef4444",
+            "price_eur": 2.4
+          },
+          "basket_total": 4.2
+        },
+        {
+          "t": 9.8,
+          "type": "move_to_shelf",
+          "zone": "produce",
+          "x": -5.32,
+          "z": 1.35,
+          "sku": "PROD-SALAD-01",
+          "detail": "Checking Fresh Baby Spinach & Rocket Mix (\u20ac2.20)",
+          "basket_total": 4.2
+        },
+        {
+          "t": 10.8,
+          "type": "pickup",
+          "zone": "produce",
+          "x": -5.32,
+          "z": 1.35,
+          "sku": "PROD-SALAD-01",
+          "detail": "Added 1\u00d7 Fresh Baby Spinach & Rocket Mix (\u20ac2.20)",
+          "payload": {
+            "color_hex": "#15803d",
+            "price_eur": 2.2
+          },
+          "basket_total": 6.4
+        },
+        {
+          "t": 12.6,
+          "type": "move_to_shelf",
+          "zone": "chilled",
+          "x": 3.48,
+          "z": -4.25,
+          "sku": "CHILL-MOZZ-01",
+          "detail": "Checking Fresh Mozzarella Di Bufala (\u20ac2.50)",
+          "basket_total": 6.4
+        },
+        {
+          "t": 13.6,
+          "type": "pickup",
+          "zone": "chilled",
+          "x": 3.48,
+          "z": -4.25,
+          "sku": "CHILL-MOZZ-01",
+          "detail": "Added 1\u00d7 Fresh Mozzarella Di Bufala (\u20ac2.50)",
+          "payload": {
+            "color_hex": "#f8fafc",
+            "price_eur": 2.5
+          },
+          "basket_total": 8.9
+        },
+        {
+          "t": 15.4,
+          "type": "move_to_shelf",
+          "zone": "aisle_3",
+          "x": 4.38,
+          "z": -0.05,
+          "sku": "BREAD-GARLIC-01",
+          "detail": "Checking Herb & Garlic Baguette (\u20ac1.90)",
+          "basket_total": 8.9
+        },
+        {
+          "t": 16.4,
+          "type": "pickup",
+          "zone": "aisle_3",
+          "x": 4.38,
+          "z": -0.05,
+          "sku": "BREAD-GARLIC-01",
+          "detail": "Added 1\u00d7 Herb & Garlic Baguette (\u20ac1.90)",
+          "payload": {
+            "color_hex": "#d97706",
+            "price_eur": 1.9
+          },
+          "basket_total": 10.8
+        },
+        {
+          "t": 18.4,
+          "type": "move_to_checkout",
+          "zone": "checkout_2",
+          "x": 3.95,
+          "z": 3.7,
+          "detail": "Checking stock, dietary requirements, and budget at checkout",
+          "basket_total": 10.8
+        },
+        {
+          "t": 19.6,
+          "type": "checkout_complete",
+          "zone": "checkout_2",
+          "x": 3.95,
+          "z": 3.7,
+          "detail": "Valid basket \u2014 simulated checkout complete (\u20ac10.80 / \u20ac15.00)",
+          "basket_total": 10.8
+        }
+      ],
+      "duration_sec": 20.8,
+      "is_flagship": true,
+      "matched_shopper_id": "A1"
+    },
+    {
+      "trip_id": "flagship_store_seed_2026_A2",
+      "run_id": "flagship_store_seed_2026",
+      "pair_id": 2,
+      "arm": "A",
+      "shopper_id": "A2",
+      "shopper_name": "Maya",
+      "shirt_color": "#3b82f6",
+      "shopper_profile": "budget_conscious",
+      "shopper_profile_label": "Budget-Conscious",
+      "request_text": "Vegan chickpea curry dinner under \u20ac12: basmati rice, chickpeas, coconut curry sauce, and broccoli.",
+      "budget_eur": 12.0,
+      "dietary_req": [
+        "vegan"
+      ],
+      "preferred_brand": null,
+      "prompt_version": "v2_structured_constraints",
+      "model_version": "qwen2.5:1.5b (1.5B Q4_K_M )",
+      "had_stockout": true,
+      "stockout_sku": "CURRY-COC-01",
+      "substitute_offered": false,
+      "substitute_accepted": false,
+      "extra_searches": 1,
+      "abandoned": true,
+      "checkout_valid": false,
+      "failure_stage": "stockout_abandon",
+      "failure_reason": "unresolved_stockout:CURRY-COC-01",
+      "basket_total_eur": 4.1,
+      "basket": [
+        {
+          "sku": "RICE-BAS-01",
+          "name": "Aromatic Basmati Rice",
+          "brand": "PureGrain",
+          "subcategory": "rice",
+          "requested_subcategory": "rice",
+          "quantity": 1,
+          "unit_price_eur": 2.7,
+          "line_total_eur": 2.7,
+          "substituted_for": null,
+          "color_hex": "#fef08a"
+        },
+        {
+          "sku": "LEG-CHICK-01",
+          "name": "Organic Cooked Chickpeas",
+          "brand": "Verde Campo",
+          "subcategory": "legumes",
+          "requested_subcategory": "legumes",
+          "quantity": 1,
+          "unit_price_eur": 1.4,
+          "line_total_eur": 1.4,
+          "substituted_for": null,
+          "color_hex": "#d97706"
+        }
+      ],
+      "recommendations": [],
+      "checkout": {
+        "valid": false,
+        "total_eur": 4.1,
+        "budget_eur": 12.0,
+        "errors": [],
+        "primary_failure": "unresolved_stockout:CURRY-COC-01"
+      },
+      "tool_log": [
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "rice",
+            "query": "basmati rice",
+            "dietary": [
+              "vegan"
+            ],
+            "in_stock_only": false
+          },
+          "result_skus": [
+            "RICE-BAS-01",
+            "RICE-JAS-01"
+          ]
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "RICE-BAS-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "RICE-BAS-01",
+            "name": "Aromatic Basmati Rice",
+            "exists": true,
+            "available": true,
+            "stock": 16,
+            "price_eur": 2.7
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "RICE-BAS-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "RICE-BAS-01",
+            "name": "Aromatic Basmati Rice",
+            "brand": "PureGrain",
+            "subcategory": "rice",
+            "requested_subcategory": "rice",
+            "quantity": 1,
+            "unit_price_eur": 2.7,
+            "line_total_eur": 2.7,
+            "substituted_for": null,
+            "color_hex": "#fef08a"
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "legumes",
+            "query": "chickpeas",
+            "dietary": [
+              "vegan"
+            ],
+            "in_stock_only": false
+          },
+          "result_skus": [
+            "LEG-CHICK-01",
+            "LEG-LENT-01"
+          ]
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "LEG-CHICK-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "LEG-CHICK-01",
+            "name": "Organic Cooked Chickpeas",
+            "exists": true,
+            "available": true,
+            "stock": 20,
+            "price_eur": 1.4
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "LEG-CHICK-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "LEG-CHICK-01",
+            "name": "Organic Cooked Chickpeas",
+            "brand": "Verde Campo",
+            "subcategory": "legumes",
+            "requested_subcategory": "legumes",
+            "quantity": 1,
+            "unit_price_eur": 1.4,
+            "line_total_eur": 1.4,
+            "substituted_for": null,
+            "color_hex": "#d97706"
+          }
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "CURRY-COC-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "CURRY-COC-01",
+            "name": "Creamy Coconut Curry Simmer Sauce",
+            "exists": true,
+            "available": false,
+            "stock": 0,
+            "price_eur": 2.8
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "curry_sauce",
+            "query": null,
+            "dietary": [
+              "vegan"
+            ],
+            "in_stock_only": true
+          },
+          "result_skus": []
+        }
+      ],
+      "timeline": [
+        {
+          "t": 0.45,
+          "type": "enter_store",
+          "zone": "entrance",
+          "x": -6.75,
+          "z": 4.15,
+          "detail": "Maya (A) entered AI Grocery Lab",
+          "basket_total": 0.0
+        },
+        {
+          "t": 2.25,
+          "type": "move_to_shelf",
+          "zone": "aisle_2",
+          "x": 0.62,
+          "z": -0.85,
+          "sku": "RICE-BAS-01",
+          "detail": "Checking Aromatic Basmati Rice (\u20ac2.70)",
+          "basket_total": 0
+        },
+        {
+          "t": 3.25,
+          "type": "pickup",
+          "zone": "aisle_2",
+          "x": 0.62,
+          "z": -0.85,
+          "sku": "RICE-BAS-01",
+          "detail": "Added 1\u00d7 Aromatic Basmati Rice (\u20ac2.70)",
+          "payload": {
+            "color_hex": "#fef08a",
+            "price_eur": 2.7
+          },
+          "basket_total": 2.7
+        },
+        {
+          "t": 5.05,
+          "type": "move_to_shelf",
+          "zone": "aisle_2",
+          "x": 0.62,
+          "z": -0.05,
+          "sku": "LEG-CHICK-01",
+          "detail": "Checking Organic Cooked Chickpeas (\u20ac1.40)",
+          "basket_total": 2.7
+        },
+        {
+          "t": 6.05,
+          "type": "pickup",
+          "zone": "aisle_2",
+          "x": 0.62,
+          "z": -0.05,
+          "sku": "LEG-CHICK-01",
+          "detail": "Added 1\u00d7 Organic Cooked Chickpeas (\u20ac1.40)",
+          "payload": {
+            "color_hex": "#d97706",
+            "price_eur": 1.4
+          },
+          "basket_total": 4.1
+        },
+        {
+          "t": 7.85,
+          "type": "move_to_shelf",
+          "zone": "aisle_2",
+          "x": 0.62,
+          "z": 0.75,
+          "sku": "CURRY-COC-01",
+          "detail": "Checking Creamy Coconut Curry Simmer Sauce (\u20ac2.80)",
+          "basket_total": 4.1
+        },
+        {
+          "t": 8.95,
+          "type": "stockout",
+          "zone": "aisle_2",
+          "x": 0.62,
+          "z": 0.75,
+          "sku": "CURRY-COC-01",
+          "detail": "Sold out: Creamy Coconut Curry Simmer Sauce (0 in stock)",
+          "basket_total": 4.1
+        },
+        {
+          "t": 10.35,
+          "type": "extra_search",
+          "zone": "aisle_2",
+          "x": 0.97,
+          "z": 0.75,
+          "detail": "Searching aisle independently (attempt 1)",
+          "basket_total": 4.1
+        },
+        {
+          "t": 11.95,
+          "type": "abandon",
+          "zone": "exit",
+          "x": -3.3,
+          "z": 4.15,
+          "detail": "Abandoned trip after stockout on Creamy Coconut Curry Simmer Sauce",
+          "basket_total": 4.1
+        }
+      ],
+      "duration_sec": 13.15,
+      "is_flagship": false,
+      "matched_shopper_id": "B2"
+    },
+    {
+      "trip_id": "flagship_store_seed_2026_B2",
+      "run_id": "flagship_store_seed_2026",
+      "pair_id": 2,
+      "arm": "B",
+      "shopper_id": "B2",
+      "shopper_name": "Hugo",
+      "shirt_color": "#f59e0b",
+      "shopper_profile": "budget_conscious",
+      "shopper_profile_label": "Budget-Conscious",
+      "request_text": "Vegan chickpea curry dinner under \u20ac12: basmati rice, chickpeas, coconut curry sauce, and broccoli.",
+      "budget_eur": 12.0,
+      "dietary_req": [
+        "vegan"
+      ],
+      "preferred_brand": null,
+      "prompt_version": "v2_structured_constraints",
+      "model_version": "qwen2.5:1.5b (1.5B Q4_K_M )",
+      "had_stockout": true,
+      "stockout_sku": "CURRY-COC-01",
+      "substitute_offered": false,
+      "substitute_accepted": false,
+      "extra_searches": 0,
+      "abandoned": true,
+      "checkout_valid": false,
+      "failure_stage": "stockout_abandon",
+      "failure_reason": "unresolved_stockout:CURRY-COC-01",
+      "basket_total_eur": 4.1,
+      "basket": [
+        {
+          "sku": "RICE-BAS-01",
+          "name": "Aromatic Basmati Rice",
+          "brand": "PureGrain",
+          "subcategory": "rice",
+          "requested_subcategory": "rice",
+          "quantity": 1,
+          "unit_price_eur": 2.7,
+          "line_total_eur": 2.7,
+          "substituted_for": null,
+          "color_hex": "#fef08a"
+        },
+        {
+          "sku": "LEG-CHICK-01",
+          "name": "Organic Cooked Chickpeas",
+          "brand": "Verde Campo",
+          "subcategory": "legumes",
+          "requested_subcategory": "legumes",
+          "quantity": 1,
+          "unit_price_eur": 1.4,
+          "line_total_eur": 1.4,
+          "substituted_for": null,
+          "color_hex": "#d97706"
+        }
+      ],
+      "recommendations": [
+        {
+          "sold_out_sku": "CURRY-COC-01",
+          "offered_sku": null,
+          "offered_name": null,
+          "offered_price_eur": null,
+          "accepted": false,
+          "reason": "no_suitable_substitute_available"
+        }
+      ],
+      "checkout": {
+        "valid": false,
+        "total_eur": 4.1,
+        "budget_eur": 12.0,
+        "errors": [],
+        "primary_failure": "unresolved_stockout:CURRY-COC-01"
+      },
+      "tool_log": [
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "rice",
+            "query": "basmati rice",
+            "dietary": [
+              "vegan"
+            ],
+            "in_stock_only": false
+          },
+          "result_skus": [
+            "RICE-BAS-01",
+            "RICE-JAS-01"
+          ]
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "RICE-BAS-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "RICE-BAS-01",
+            "name": "Aromatic Basmati Rice",
+            "exists": true,
+            "available": true,
+            "stock": 16,
+            "price_eur": 2.7
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "RICE-BAS-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "RICE-BAS-01",
+            "name": "Aromatic Basmati Rice",
+            "brand": "PureGrain",
+            "subcategory": "rice",
+            "requested_subcategory": "rice",
+            "quantity": 1,
+            "unit_price_eur": 2.7,
+            "line_total_eur": 2.7,
+            "substituted_for": null,
+            "color_hex": "#fef08a"
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "legumes",
+            "query": "chickpeas",
+            "dietary": [
+              "vegan"
+            ],
+            "in_stock_only": false
+          },
+          "result_skus": [
+            "LEG-CHICK-01",
+            "LEG-LENT-01"
+          ]
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "LEG-CHICK-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "LEG-CHICK-01",
+            "name": "Organic Cooked Chickpeas",
+            "exists": true,
+            "available": true,
+            "stock": 20,
+            "price_eur": 1.4
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "LEG-CHICK-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "LEG-CHICK-01",
+            "name": "Organic Cooked Chickpeas",
+            "brand": "Verde Campo",
+            "subcategory": "legumes",
+            "requested_subcategory": "legumes",
+            "quantity": 1,
+            "unit_price_eur": 1.4,
+            "line_total_eur": 1.4,
+            "substituted_for": null,
+            "color_hex": "#d97706"
+          }
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "CURRY-COC-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "CURRY-COC-01",
+            "name": "Creamy Coconut Curry Simmer Sauce",
+            "exists": true,
+            "available": false,
+            "stock": 0,
+            "price_eur": 2.8
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "curry_sauce",
+            "query": null,
+            "dietary": [
+              "vegan"
+            ],
+            "in_stock_only": true
+          },
+          "result_skus": []
+        },
+        {
+          "tool": "find_substitute",
+          "args": {
+            "sold_out_sku": "CURRY-COC-01"
+          },
+          "result": null
+        }
+      ],
+      "timeline": [
+        {
+          "t": 0.65,
+          "type": "enter_store",
+          "zone": "entrance",
+          "x": -6.75,
+          "z": 5.05,
+          "detail": "Hugo (B) entered AI Grocery Lab",
+          "basket_total": 0.0
+        },
+        {
+          "t": 2.45,
+          "type": "move_to_shelf",
+          "zone": "aisle_2",
+          "x": 1.18,
+          "z": -0.85,
+          "sku": "RICE-BAS-01",
+          "detail": "Checking Aromatic Basmati Rice (\u20ac2.70)",
+          "basket_total": 0
+        },
+        {
+          "t": 3.45,
+          "type": "pickup",
+          "zone": "aisle_2",
+          "x": 1.18,
+          "z": -0.85,
+          "sku": "RICE-BAS-01",
+          "detail": "Added 1\u00d7 Aromatic Basmati Rice (\u20ac2.70)",
+          "payload": {
+            "color_hex": "#fef08a",
+            "price_eur": 2.7
+          },
+          "basket_total": 2.7
+        },
+        {
+          "t": 5.25,
+          "type": "move_to_shelf",
+          "zone": "aisle_2",
+          "x": 1.18,
+          "z": -0.05,
+          "sku": "LEG-CHICK-01",
+          "detail": "Checking Organic Cooked Chickpeas (\u20ac1.40)",
+          "basket_total": 2.7
+        },
+        {
+          "t": 6.25,
+          "type": "pickup",
+          "zone": "aisle_2",
+          "x": 1.18,
+          "z": -0.05,
+          "sku": "LEG-CHICK-01",
+          "detail": "Added 1\u00d7 Organic Cooked Chickpeas (\u20ac1.40)",
+          "payload": {
+            "color_hex": "#d97706",
+            "price_eur": 1.4
+          },
+          "basket_total": 4.1
+        },
+        {
+          "t": 8.05,
+          "type": "move_to_shelf",
+          "zone": "aisle_2",
+          "x": 1.18,
+          "z": 0.75,
+          "sku": "CURRY-COC-01",
+          "detail": "Checking Creamy Coconut Curry Simmer Sauce (\u20ac2.80)",
+          "basket_total": 4.1
+        },
+        {
+          "t": 9.15,
+          "type": "stockout",
+          "zone": "aisle_2",
+          "x": 1.18,
+          "z": 0.75,
+          "sku": "CURRY-COC-01",
+          "detail": "Sold out: Creamy Coconut Curry Simmer Sauce (0 in stock)",
+          "basket_total": 4.1
+        },
+        {
+          "t": 10.05,
+          "type": "no_substitute",
+          "zone": "aisle_2",
+          "x": 1.18,
+          "z": 0.75,
+          "sku": "CURRY-COC-01",
+          "detail": "No suitable in-stock replacement within budget & dietary constraints",
+          "basket_total": 4.1
+        },
+        {
+          "t": 11.65,
+          "type": "abandon",
+          "zone": "exit",
+          "x": -2.15,
+          "z": 4.15,
+          "detail": "Abandoned trip after stockout on Creamy Coconut Curry Simmer Sauce",
+          "basket_total": 4.1
+        }
+      ],
+      "duration_sec": 12.85,
+      "is_flagship": false,
+      "matched_shopper_id": "A2"
+    },
+    {
+      "trip_id": "flagship_store_seed_2026_A3",
+      "run_id": "flagship_store_seed_2026",
+      "pair_id": 3,
+      "arm": "A",
+      "shopper_id": "A3",
+      "shopper_name": "Nathan",
+      "shirt_color": "#10b981",
+      "shopper_profile": "brand_loyal",
+      "shopper_profile_label": "Brand-Loyal",
+      "request_text": "Gluten-free pasta night under \u20ac14: gluten-free fusilli, tomato sauce, cherry tomatoes, and parmesan.",
+      "budget_eur": 14.0,
+      "dietary_req": [
+        "gluten_free",
+        "vegetarian"
+      ],
+      "preferred_brand": "Nonna Rosa",
+      "prompt_version": "v2_structured_constraints",
+      "model_version": "qwen2.5:1.5b (1.5B Q4_K_M )",
+      "had_stockout": true,
+      "stockout_sku": "SAUCE-TOM-01",
+      "substitute_offered": false,
+      "substitute_accepted": false,
+      "extra_searches": 0,
+      "abandoned": true,
+      "checkout_valid": false,
+      "failure_stage": "stockout_abandon",
+      "failure_reason": "unresolved_stockout:SAUCE-TOM-01",
+      "basket_total_eur": 2.9,
+      "basket": [
+        {
+          "sku": "PASTA-GF-01",
+          "name": "Corn & Rice Gluten-Free Fusilli",
+          "brand": "PureGrain",
+          "subcategory": "pasta",
+          "requested_subcategory": "pasta",
+          "quantity": 1,
+          "unit_price_eur": 2.9,
+          "line_total_eur": 2.9,
+          "substituted_for": null,
+          "color_hex": "#facc15"
+        }
+      ],
+      "recommendations": [],
+      "checkout": {
+        "valid": false,
+        "total_eur": 2.9,
+        "budget_eur": 14.0,
+        "errors": [],
+        "primary_failure": "unresolved_stockout:SAUCE-TOM-01"
+      },
+      "tool_log": [
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "pasta",
+            "query": "gluten-free fusilli",
+            "dietary": [
+              "gluten_free",
+              "vegetarian"
+            ],
+            "in_stock_only": false
+          },
+          "result_skus": [
+            "PASTA-GF-01",
+            "PASTA-GF-02"
+          ]
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "PASTA-GF-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "PASTA-GF-01",
+            "name": "Corn & Rice Gluten-Free Fusilli",
+            "exists": true,
+            "available": true,
+            "stock": 10,
+            "price_eur": 2.9
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "PASTA-GF-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "PASTA-GF-01",
+            "name": "Corn & Rice Gluten-Free Fusilli",
+            "brand": "PureGrain",
+            "subcategory": "pasta",
+            "requested_subcategory": "pasta",
+            "quantity": 1,
+            "unit_price_eur": 2.9,
+            "line_total_eur": 2.9,
+            "substituted_for": null,
+            "color_hex": "#facc15"
+          }
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "SAUCE-TOM-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "SAUCE-TOM-01",
+            "name": "San Marzano Basil Tomato Sauce",
+            "exists": true,
+            "available": false,
+            "stock": 0,
+            "price_eur": 2.6
+          }
+        }
+      ],
+      "timeline": [
+        {
+          "t": 0.9,
+          "type": "enter_store",
+          "zone": "entrance",
+          "x": -8.05,
+          "z": 4.15,
+          "detail": "Nathan (A) entered AI Grocery Lab",
+          "basket_total": 0.0
+        },
+        {
+          "t": 2.7,
+          "type": "move_to_shelf",
+          "zone": "aisle_1",
+          "x": -1.78,
+          "z": 0.75,
+          "sku": "PASTA-GF-01",
+          "detail": "Checking Corn & Rice Gluten-Free Fusilli (\u20ac2.90)",
+          "basket_total": 0
+        },
+        {
+          "t": 3.7,
+          "type": "pickup",
+          "zone": "aisle_1",
+          "x": -1.78,
+          "z": 0.75,
+          "sku": "PASTA-GF-01",
+          "detail": "Added 1\u00d7 Corn & Rice Gluten-Free Fusilli (\u20ac2.90)",
+          "payload": {
+            "color_hex": "#facc15",
+            "price_eur": 2.9
+          },
+          "basket_total": 2.9
+        },
+        {
+          "t": 5.5,
+          "type": "move_to_shelf",
+          "zone": "aisle_1",
+          "x": -2.68,
+          "z": -0.85,
+          "sku": "SAUCE-TOM-01",
+          "detail": "Checking San Marzano Basil Tomato Sauce (\u20ac2.60)",
+          "basket_total": 2.9
+        },
+        {
+          "t": 6.6,
+          "type": "stockout",
+          "zone": "aisle_1",
+          "x": -2.68,
+          "z": -0.85,
+          "sku": "SAUCE-TOM-01",
+          "detail": "Sold out: San Marzano Basil Tomato Sauce (0 in stock)",
+          "basket_total": 2.9
+        },
+        {
+          "t": 8.2,
+          "type": "abandon",
+          "zone": "exit",
+          "x": -1.0,
+          "z": 4.15,
+          "detail": "Abandoned trip after stockout on San Marzano Basil Tomato Sauce",
+          "basket_total": 2.9
+        }
+      ],
+      "duration_sec": 9.4,
+      "is_flagship": false,
+      "matched_shopper_id": "B3"
+    },
+    {
+      "trip_id": "flagship_store_seed_2026_B3",
+      "run_id": "flagship_store_seed_2026",
+      "pair_id": 3,
+      "arm": "B",
+      "shopper_id": "B3",
+      "shopper_name": "Sofia",
+      "shirt_color": "#8b5cf6",
+      "shopper_profile": "brand_loyal",
+      "shopper_profile_label": "Brand-Loyal",
+      "request_text": "Gluten-free pasta night under \u20ac14: gluten-free fusilli, tomato sauce, cherry tomatoes, and parmesan.",
+      "budget_eur": 14.0,
+      "dietary_req": [
+        "gluten_free",
+        "vegetarian"
+      ],
+      "preferred_brand": "Nonna Rosa",
+      "prompt_version": "v2_structured_constraints",
+      "model_version": "qwen2.5:1.5b (1.5B Q4_K_M )",
+      "had_stockout": true,
+      "stockout_sku": "SAUCE-TOM-01",
+      "substitute_offered": true,
+      "substitute_accepted": false,
+      "extra_searches": 1,
+      "abandoned": false,
+      "checkout_valid": true,
+      "failure_stage": null,
+      "failure_reason": null,
+      "basket_total_eur": 11.1,
+      "basket": [
+        {
+          "sku": "PASTA-GF-01",
+          "name": "Corn & Rice Gluten-Free Fusilli",
+          "brand": "PureGrain",
+          "subcategory": "pasta",
+          "requested_subcategory": "pasta",
+          "quantity": 1,
+          "unit_price_eur": 2.9,
+          "line_total_eur": 2.9,
+          "substituted_for": null,
+          "color_hex": "#facc15"
+        },
+        {
+          "sku": "SAUCE-TOM-03",
+          "name": "Arrabbiata Chili Tomato Sauce",
+          "brand": "Casa Sole",
+          "subcategory": "tomato_sauce",
+          "requested_subcategory": "tomato_sauce",
+          "quantity": 1,
+          "unit_price_eur": 2.2,
+          "line_total_eur": 2.2,
+          "substituted_for": "SAUCE-TOM-01",
+          "color_hex": "#b91c1c"
+        },
+        {
+          "sku": "PROD-TOM-01",
+          "name": "Sweet Cherry Tomatoes",
+          "brand": "Fermier Local",
+          "subcategory": "tomatoes",
+          "requested_subcategory": "tomatoes",
+          "quantity": 1,
+          "unit_price_eur": 2.3,
+          "line_total_eur": 2.3,
+          "substituted_for": null,
+          "color_hex": "#ef4444"
+        },
+        {
+          "sku": "CHILL-PARM-01",
+          "name": "Aged Parmigiano Reggiano",
+          "brand": "Nonna Rosa",
+          "subcategory": "cheese",
+          "requested_subcategory": "cheese",
+          "quantity": 1,
+          "unit_price_eur": 3.7,
+          "line_total_eur": 3.7,
+          "substituted_for": null,
+          "color_hex": "#fde047"
+        }
+      ],
+      "recommendations": [
+        {
+          "sold_out_sku": "SAUCE-TOM-01",
+          "offered_sku": "SAUCE-TOM-02",
+          "offered_name": "Organic Napoletana Tomato Sauce",
+          "offered_price_eur": 2.4,
+          "accepted": false,
+          "reason": "rejected_brand_preference"
+        }
+      ],
+      "checkout": {
+        "valid": true,
+        "total_eur": 11.1,
+        "budget_eur": 14.0,
+        "errors": [],
+        "primary_failure": null
+      },
+      "tool_log": [
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "pasta",
+            "query": "gluten-free fusilli",
+            "dietary": [
+              "gluten_free",
+              "vegetarian"
+            ],
+            "in_stock_only": false
+          },
+          "result_skus": [
+            "PASTA-GF-01",
+            "PASTA-GF-02"
+          ]
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "PASTA-GF-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "PASTA-GF-01",
+            "name": "Corn & Rice Gluten-Free Fusilli",
+            "exists": true,
+            "available": true,
+            "stock": 10,
+            "price_eur": 2.9
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "PASTA-GF-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "PASTA-GF-01",
+            "name": "Corn & Rice Gluten-Free Fusilli",
+            "brand": "PureGrain",
+            "subcategory": "pasta",
+            "requested_subcategory": "pasta",
+            "quantity": 1,
+            "unit_price_eur": 2.9,
+            "line_total_eur": 2.9,
+            "substituted_for": null,
+            "color_hex": "#facc15"
+          }
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "SAUCE-TOM-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "SAUCE-TOM-01",
+            "name": "San Marzano Basil Tomato Sauce",
+            "exists": true,
+            "available": false,
+            "stock": 0,
+            "price_eur": 2.6
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "tomato_sauce",
+            "query": null,
+            "dietary": [
+              "gluten_free",
+              "vegetarian"
+            ],
+            "in_stock_only": true
+          },
+          "result_skus": [
+            "SAUCE-TOM-03",
+            "SAUCE-TOM-02"
+          ]
+        },
+        {
+          "tool": "find_substitute",
+          "args": {
+            "sold_out_sku": "SAUCE-TOM-01",
+            "dietary": [
+              "gluten_free",
+              "vegetarian"
+            ],
+            "max_unit_price": 11.1
+          },
+          "result": {
+            "sku": "SAUCE-TOM-02",
+            "name": "Organic Napoletana Tomato Sauce",
+            "price_eur": 2.4
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "tomato_sauce",
+            "query": null,
+            "dietary": [
+              "gluten_free",
+              "vegetarian"
+            ],
+            "in_stock_only": true
+          },
+          "result_skus": [
+            "SAUCE-TOM-03"
+          ]
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "SAUCE-TOM-03",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "SAUCE-TOM-03",
+            "name": "Arrabbiata Chili Tomato Sauce",
+            "brand": "Casa Sole",
+            "subcategory": "tomato_sauce",
+            "requested_subcategory": "tomato_sauce",
+            "quantity": 1,
+            "unit_price_eur": 2.2,
+            "line_total_eur": 2.2,
+            "substituted_for": "SAUCE-TOM-01",
+            "color_hex": "#b91c1c"
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "tomatoes",
+            "query": "cherry tomatoes",
+            "dietary": [
+              "gluten_free",
+              "vegetarian"
+            ],
+            "in_stock_only": false
+          },
+          "result_skus": [
+            "PROD-TOM-01"
+          ]
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "PROD-TOM-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "PROD-TOM-01",
+            "name": "Sweet Cherry Tomatoes",
+            "exists": true,
+            "available": true,
+            "stock": 15,
+            "price_eur": 2.3
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "PROD-TOM-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "PROD-TOM-01",
+            "name": "Sweet Cherry Tomatoes",
+            "brand": "Fermier Local",
+            "subcategory": "tomatoes",
+            "requested_subcategory": "tomatoes",
+            "quantity": 1,
+            "unit_price_eur": 2.3,
+            "line_total_eur": 2.3,
+            "substituted_for": null,
+            "color_hex": "#ef4444"
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "cheese",
+            "query": "parmigiano",
+            "dietary": [
+              "gluten_free",
+              "vegetarian"
+            ],
+            "in_stock_only": false
+          },
+          "result_skus": [
+            "CHILL-PARM-01",
+            "CHILL-MOZZ-01",
+            "CHILL-VEGCH-01"
+          ]
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "CHILL-PARM-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "CHILL-PARM-01",
+            "name": "Aged Parmigiano Reggiano",
+            "exists": true,
+            "available": true,
+            "stock": 14,
+            "price_eur": 3.7
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "CHILL-PARM-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "CHILL-PARM-01",
+            "name": "Aged Parmigiano Reggiano",
+            "brand": "Nonna Rosa",
+            "subcategory": "cheese",
+            "requested_subcategory": "cheese",
+            "quantity": 1,
+            "unit_price_eur": 3.7,
+            "line_total_eur": 3.7,
+            "substituted_for": null,
+            "color_hex": "#fde047"
+          }
+        },
+        {
+          "tool": "validate_checkout",
+          "result": {
+            "valid": true,
+            "total_eur": 11.1,
+            "budget_eur": 14.0,
+            "errors": [],
+            "primary_failure": null
+          }
+        }
+      ],
+      "timeline": [
+        {
+          "t": 1.1,
+          "type": "enter_store",
+          "zone": "entrance",
+          "x": -8.05,
+          "z": 5.05,
+          "detail": "Sofia (B) entered AI Grocery Lab",
+          "basket_total": 0.0
+        },
+        {
+          "t": 2.9,
+          "type": "move_to_shelf",
+          "zone": "aisle_1",
+          "x": -1.22,
+          "z": 0.75,
+          "sku": "PASTA-GF-01",
+          "detail": "Checking Corn & Rice Gluten-Free Fusilli (\u20ac2.90)",
+          "basket_total": 0
+        },
+        {
+          "t": 3.9,
+          "type": "pickup",
+          "zone": "aisle_1",
+          "x": -1.22,
+          "z": 0.75,
+          "sku": "PASTA-GF-01",
+          "detail": "Added 1\u00d7 Corn & Rice Gluten-Free Fusilli (\u20ac2.90)",
+          "payload": {
+            "color_hex": "#facc15",
+            "price_eur": 2.9
+          },
+          "basket_total": 2.9
+        },
+        {
+          "t": 5.7,
+          "type": "move_to_shelf",
+          "zone": "aisle_1",
+          "x": -2.12,
+          "z": -0.85,
+          "sku": "SAUCE-TOM-01",
+          "detail": "Checking San Marzano Basil Tomato Sauce (\u20ac2.60)",
+          "basket_total": 2.9
+        },
+        {
+          "t": 6.8,
+          "type": "stockout",
+          "zone": "aisle_1",
+          "x": -2.12,
+          "z": -0.85,
+          "sku": "SAUCE-TOM-01",
+          "detail": "Sold out: San Marzano Basil Tomato Sauce (0 in stock)",
+          "basket_total": 2.9
+        },
+        {
+          "t": 7.9,
+          "type": "substitute_offered",
+          "zone": "aisle_1",
+          "x": -1.52,
+          "z": -0.85,
+          "sku": "SAUCE-TOM-02",
+          "detail": "Assistant suggested Organic Napoletana Tomato Sauce (\u20ac2.40)",
+          "basket_total": 2.9
+        },
+        {
+          "t": 8.9,
+          "type": "substitute_rejected",
+          "zone": "aisle_1",
+          "x": -2.12,
+          "z": -0.85,
+          "sku": "SAUCE-TOM-02",
+          "detail": "Rejected Organic Napoletana Tomato Sauce (rejected_brand_preference)",
+          "basket_total": 2.9
+        },
+        {
+          "t": 10.3,
+          "type": "extra_search",
+          "zone": "aisle_1",
+          "x": -1.77,
+          "z": -0.85,
+          "detail": "Searching aisle independently (attempt 1)",
+          "basket_total": 2.9
+        },
+        {
+          "t": 11.3,
+          "type": "pickup",
+          "zone": "aisle_1",
+          "x": -1.75,
+          "z": -0.85,
+          "sku": "SAUCE-TOM-03",
+          "detail": "Found alternative on own: Arrabbiata Chili Tomato Sauce (\u20ac2.20)",
+          "payload": {
+            "color_hex": "#b91c1c",
+            "price_eur": 2.2
+          },
+          "basket_total": 5.1
+        },
+        {
+          "t": 13.1,
+          "type": "move_to_shelf",
+          "zone": "produce",
+          "x": -5.32,
+          "z": 2.05,
+          "sku": "PROD-TOM-01",
+          "detail": "Checking Sweet Cherry Tomatoes (\u20ac2.30)",
+          "basket_total": 5.1
+        },
+        {
+          "t": 14.1,
+          "type": "pickup",
+          "zone": "produce",
+          "x": -5.32,
+          "z": 2.05,
+          "sku": "PROD-TOM-01",
+          "detail": "Added 1\u00d7 Sweet Cherry Tomatoes (\u20ac2.30)",
+          "payload": {
+            "color_hex": "#ef4444",
+            "price_eur": 2.3
+          },
+          "basket_total": 7.4
+        },
+        {
+          "t": 15.9,
+          "type": "move_to_shelf",
+          "zone": "chilled",
+          "x": 2.48,
+          "z": -4.25,
+          "sku": "CHILL-PARM-01",
+          "detail": "Checking Aged Parmigiano Reggiano (\u20ac3.70)",
+          "basket_total": 7.4
+        },
+        {
+          "t": 16.9,
+          "type": "pickup",
+          "zone": "chilled",
+          "x": 2.48,
+          "z": -4.25,
+          "sku": "CHILL-PARM-01",
+          "detail": "Added 1\u00d7 Aged Parmigiano Reggiano (\u20ac3.70)",
+          "payload": {
+            "color_hex": "#fde047",
+            "price_eur": 3.7
+          },
+          "basket_total": 11.1
+        },
+        {
+          "t": 18.9,
+          "type": "move_to_checkout",
+          "zone": "checkout_2",
+          "x": 3.95,
+          "z": 5.6,
+          "detail": "Checking stock, dietary requirements, and budget at checkout",
+          "basket_total": 11.1
+        },
+        {
+          "t": 20.1,
+          "type": "checkout_complete",
+          "zone": "checkout_2",
+          "x": 3.95,
+          "z": 5.6,
+          "detail": "Valid basket \u2014 simulated checkout complete (\u20ac11.10 / \u20ac14.00)",
+          "basket_total": 11.1
+        }
+      ],
+      "duration_sec": 21.3,
+      "is_flagship": false,
+      "matched_shopper_id": "A3"
+    },
+    {
+      "trip_id": "flagship_store_seed_2026_A4",
+      "run_id": "flagship_store_seed_2026",
+      "pair_id": 4,
+      "arm": "A",
+      "shopper_id": "A4",
+      "shopper_name": "Tom",
+      "shirt_color": "#f97316",
+      "shopper_profile": "flexible",
+      "shopper_profile_label": "Flexible",
+      "request_text": "Nut-free vegan breakfast under \u20ac13: gluten-free oats, oat milk, bananas, and nut-free granola.",
+      "budget_eur": 13.0,
+      "dietary_req": [
+        "vegan",
+        "nut_free"
+      ],
+      "preferred_brand": null,
+      "prompt_version": "v2_structured_constraints",
+      "model_version": "qwen2.5:1.5b (1.5B Q4_K_M )",
+      "had_stockout": true,
+      "stockout_sku": "CHILL-MILK-01",
+      "substitute_offered": false,
+      "substitute_accepted": false,
+      "extra_searches": 1,
+      "abandoned": false,
+      "checkout_valid": true,
+      "failure_stage": null,
+      "failure_reason": null,
+      "basket_total_eur": 9.9,
+      "basket": [
+        {
+          "sku": "OATS-GF-01",
+          "name": "Certified Gluten-Free Rolled Oats",
+          "brand": "Verde Campo",
+          "subcategory": "oats",
+          "requested_subcategory": "oats",
+          "quantity": 1,
+          "unit_price_eur": 2.6,
+          "line_total_eur": 2.6,
+          "substituted_for": null,
+          "color_hex": "#854d0e"
+        },
+        {
+          "sku": "CHILL-MILK-02",
+          "name": "Organic Soy Drink (Unsweetened)",
+          "brand": "PureGrain",
+          "subcategory": "milk",
+          "requested_subcategory": "milk",
+          "quantity": 1,
+          "unit_price_eur": 1.85,
+          "line_total_eur": 1.85,
+          "substituted_for": "CHILL-MILK-01",
+          "color_hex": "#0284c7"
+        },
+        {
+          "sku": "PROD-BAN-01",
+          "name": "Organic Fairtrade Bananas",
+          "brand": "Verde Campo",
+          "subcategory": "fruit",
+          "requested_subcategory": "fruit",
+          "quantity": 1,
+          "unit_price_eur": 1.85,
+          "line_total_eur": 1.85,
+          "substituted_for": null,
+          "color_hex": "#facc15"
+        },
+        {
+          "sku": "GRANOLA-NF-01",
+          "name": "Maple Seed Nut-Free Granola",
+          "brand": "PureGrain",
+          "subcategory": "granola",
+          "requested_subcategory": "granola",
+          "quantity": 1,
+          "unit_price_eur": 3.6,
+          "line_total_eur": 3.6,
+          "substituted_for": null,
+          "color_hex": "#d97706"
+        }
+      ],
+      "recommendations": [],
+      "checkout": {
+        "valid": true,
+        "total_eur": 9.9,
+        "budget_eur": 13.0,
+        "errors": [],
+        "primary_failure": null
+      },
+      "tool_log": [
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "oats",
+            "query": "gluten-free oats",
+            "dietary": [
+              "vegan",
+              "nut_free"
+            ],
+            "in_stock_only": false
+          },
+          "result_skus": [
+            "OATS-GF-01",
+            "OATS-01"
+          ]
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "OATS-GF-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "OATS-GF-01",
+            "name": "Certified Gluten-Free Rolled Oats",
+            "exists": true,
+            "available": true,
+            "stock": 12,
+            "price_eur": 2.6
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "OATS-GF-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "OATS-GF-01",
+            "name": "Certified Gluten-Free Rolled Oats",
+            "brand": "Verde Campo",
+            "subcategory": "oats",
+            "requested_subcategory": "oats",
+            "quantity": 1,
+            "unit_price_eur": 2.6,
+            "line_total_eur": 2.6,
+            "substituted_for": null,
+            "color_hex": "#854d0e"
+          }
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "CHILL-MILK-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "CHILL-MILK-01",
+            "name": "Barista Oat Drink",
+            "exists": true,
+            "available": false,
+            "stock": 0,
+            "price_eur": 2.15
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "milk",
+            "query": null,
+            "dietary": [
+              "vegan",
+              "nut_free"
+            ],
+            "in_stock_only": true
+          },
+          "result_skus": [
+            "CHILL-MILK-02"
+          ]
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "CHILL-MILK-02",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "CHILL-MILK-02",
+            "name": "Organic Soy Drink (Unsweetened)",
+            "brand": "PureGrain",
+            "subcategory": "milk",
+            "requested_subcategory": "milk",
+            "quantity": 1,
+            "unit_price_eur": 1.85,
+            "line_total_eur": 1.85,
+            "substituted_for": "CHILL-MILK-01",
+            "color_hex": "#0284c7"
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "fruit",
+            "query": "bananas",
+            "dietary": [
+              "vegan",
+              "nut_free"
+            ],
+            "in_stock_only": false
+          },
+          "result_skus": [
+            "PROD-BAN-01",
+            "PROD-APPLE-01"
+          ]
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "PROD-BAN-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "PROD-BAN-01",
+            "name": "Organic Fairtrade Bananas",
+            "exists": true,
+            "available": true,
+            "stock": 22,
+            "price_eur": 1.85
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "PROD-BAN-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "PROD-BAN-01",
+            "name": "Organic Fairtrade Bananas",
+            "brand": "Verde Campo",
+            "subcategory": "fruit",
+            "requested_subcategory": "fruit",
+            "quantity": 1,
+            "unit_price_eur": 1.85,
+            "line_total_eur": 1.85,
+            "substituted_for": null,
+            "color_hex": "#facc15"
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "granola",
+            "query": "nut-free granola",
+            "dietary": [
+              "vegan",
+              "nut_free"
+            ],
+            "in_stock_only": false
+          },
+          "result_skus": [
+            "GRANOLA-NF-01"
+          ]
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "GRANOLA-NF-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "GRANOLA-NF-01",
+            "name": "Maple Seed Nut-Free Granola",
+            "exists": true,
+            "available": true,
+            "stock": 9,
+            "price_eur": 3.6
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "GRANOLA-NF-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "GRANOLA-NF-01",
+            "name": "Maple Seed Nut-Free Granola",
+            "brand": "PureGrain",
+            "subcategory": "granola",
+            "requested_subcategory": "granola",
+            "quantity": 1,
+            "unit_price_eur": 3.6,
+            "line_total_eur": 3.6,
+            "substituted_for": null,
+            "color_hex": "#d97706"
+          }
+        },
+        {
+          "tool": "validate_checkout",
+          "result": {
+            "valid": true,
+            "total_eur": 9.9,
+            "budget_eur": 13.0,
+            "errors": [],
+            "primary_failure": null
+          }
+        }
+      ],
+      "timeline": [
+        {
+          "t": 1.35,
+          "type": "enter_store",
+          "zone": "entrance",
+          "x": -7.4,
+          "z": 4.15,
+          "detail": "Tom (A) entered AI Grocery Lab",
+          "basket_total": 0.0
+        },
+        {
+          "t": 3.15,
+          "type": "move_to_shelf",
+          "zone": "aisle_2",
+          "x": 1.22,
+          "z": 1.45,
+          "sku": "OATS-GF-01",
+          "detail": "Checking Certified Gluten-Free Rolled Oats (\u20ac2.60)",
+          "basket_total": 0
+        },
+        {
+          "t": 4.15,
+          "type": "pickup",
+          "zone": "aisle_2",
+          "x": 1.22,
+          "z": 1.45,
+          "sku": "OATS-GF-01",
+          "detail": "Added 1\u00d7 Certified Gluten-Free Rolled Oats (\u20ac2.60)",
+          "payload": {
+            "color_hex": "#854d0e",
+            "price_eur": 2.6
+          },
+          "basket_total": 2.6
+        },
+        {
+          "t": 5.95,
+          "type": "move_to_shelf",
+          "zone": "chilled",
+          "x": 2.32,
+          "z": -4.25,
+          "sku": "CHILL-MILK-01",
+          "detail": "Checking Barista Oat Drink (\u20ac2.15)",
+          "basket_total": 2.6
+        },
+        {
+          "t": 7.05,
+          "type": "stockout",
+          "zone": "chilled",
+          "x": 2.32,
+          "z": -4.25,
+          "sku": "CHILL-MILK-01",
+          "detail": "Sold out: Barista Oat Drink (0 in stock)",
+          "basket_total": 2.6
+        },
+        {
+          "t": 8.45,
+          "type": "extra_search",
+          "zone": "chilled",
+          "x": 2.67,
+          "z": -4.25,
+          "detail": "Searching aisle independently (attempt 1)",
+          "basket_total": 2.6
+        },
+        {
+          "t": 9.45,
+          "type": "pickup",
+          "zone": "chilled",
+          "x": 3.35,
+          "z": -4.25,
+          "sku": "CHILL-MILK-02",
+          "detail": "Found alternative on own: Organic Soy Drink (Unsweetened) (\u20ac1.85)",
+          "payload": {
+            "color_hex": "#0284c7",
+            "price_eur": 1.85
+          },
+          "basket_total": 4.45
+        },
+        {
+          "t": 11.25,
+          "type": "move_to_shelf",
+          "zone": "produce",
+          "x": -5.88,
+          "z": 2.65,
+          "sku": "PROD-BAN-01",
+          "detail": "Checking Organic Fairtrade Bananas (\u20ac1.85)",
+          "basket_total": 4.45
+        },
+        {
+          "t": 12.25,
+          "type": "pickup",
+          "zone": "produce",
+          "x": -5.88,
+          "z": 2.65,
+          "sku": "PROD-BAN-01",
+          "detail": "Added 1\u00d7 Organic Fairtrade Bananas (\u20ac1.85)",
+          "payload": {
+            "color_hex": "#facc15",
+            "price_eur": 1.85
+          },
+          "basket_total": 6.3
+        },
+        {
+          "t": 14.05,
+          "type": "move_to_shelf",
+          "zone": "aisle_2",
+          "x": 1.32,
+          "z": 1.85,
+          "sku": "GRANOLA-NF-01",
+          "detail": "Checking Maple Seed Nut-Free Granola (\u20ac3.60)",
+          "basket_total": 6.3
+        },
+        {
+          "t": 15.05,
+          "type": "pickup",
+          "zone": "aisle_2",
+          "x": 1.32,
+          "z": 1.85,
+          "sku": "GRANOLA-NF-01",
+          "detail": "Added 1\u00d7 Maple Seed Nut-Free Granola (\u20ac3.60)",
+          "payload": {
+            "color_hex": "#d97706",
+            "price_eur": 3.6
+          },
+          "basket_total": 9.9
+        },
+        {
+          "t": 17.05,
+          "type": "move_to_checkout",
+          "zone": "checkout_2",
+          "x": 2.85,
+          "z": 3.7,
+          "detail": "Checking stock, dietary requirements, and budget at checkout",
+          "basket_total": 9.9
+        },
+        {
+          "t": 18.25,
+          "type": "checkout_complete",
+          "zone": "checkout_2",
+          "x": 2.85,
+          "z": 3.7,
+          "detail": "Valid basket \u2014 simulated checkout complete (\u20ac9.90 / \u20ac13.00)",
+          "basket_total": 9.9
+        }
+      ],
+      "duration_sec": 19.45,
+      "is_flagship": false,
+      "matched_shopper_id": "B4"
+    },
+    {
+      "trip_id": "flagship_store_seed_2026_B4",
+      "run_id": "flagship_store_seed_2026",
+      "pair_id": 4,
+      "arm": "B",
+      "shopper_id": "B4",
+      "shopper_name": "Ines",
+      "shirt_color": "#06b6d4",
+      "shopper_profile": "flexible",
+      "shopper_profile_label": "Flexible",
+      "request_text": "Nut-free vegan breakfast under \u20ac13: gluten-free oats, oat milk, bananas, and nut-free granola.",
+      "budget_eur": 13.0,
+      "dietary_req": [
+        "vegan",
+        "nut_free"
+      ],
+      "preferred_brand": null,
+      "prompt_version": "v2_structured_constraints",
+      "model_version": "qwen2.5:1.5b (1.5B Q4_K_M )",
+      "had_stockout": true,
+      "stockout_sku": "CHILL-MILK-01",
+      "substitute_offered": true,
+      "substitute_accepted": true,
+      "extra_searches": 0,
+      "abandoned": false,
+      "checkout_valid": true,
+      "failure_stage": null,
+      "failure_reason": null,
+      "basket_total_eur": 9.9,
+      "basket": [
+        {
+          "sku": "OATS-GF-01",
+          "name": "Certified Gluten-Free Rolled Oats",
+          "brand": "Verde Campo",
+          "subcategory": "oats",
+          "requested_subcategory": "oats",
+          "quantity": 1,
+          "unit_price_eur": 2.6,
+          "line_total_eur": 2.6,
+          "substituted_for": null,
+          "color_hex": "#854d0e"
+        },
+        {
+          "sku": "CHILL-MILK-02",
+          "name": "Organic Soy Drink (Unsweetened)",
+          "brand": "PureGrain",
+          "subcategory": "milk",
+          "requested_subcategory": "milk",
+          "quantity": 1,
+          "unit_price_eur": 1.85,
+          "line_total_eur": 1.85,
+          "substituted_for": "CHILL-MILK-01",
+          "color_hex": "#0284c7"
+        },
+        {
+          "sku": "PROD-BAN-01",
+          "name": "Organic Fairtrade Bananas",
+          "brand": "Verde Campo",
+          "subcategory": "fruit",
+          "requested_subcategory": "fruit",
+          "quantity": 1,
+          "unit_price_eur": 1.85,
+          "line_total_eur": 1.85,
+          "substituted_for": null,
+          "color_hex": "#facc15"
+        },
+        {
+          "sku": "GRANOLA-NF-01",
+          "name": "Maple Seed Nut-Free Granola",
+          "brand": "PureGrain",
+          "subcategory": "granola",
+          "requested_subcategory": "granola",
+          "quantity": 1,
+          "unit_price_eur": 3.6,
+          "line_total_eur": 3.6,
+          "substituted_for": null,
+          "color_hex": "#d97706"
+        }
+      ],
+      "recommendations": [
+        {
+          "sold_out_sku": "CHILL-MILK-01",
+          "offered_sku": "CHILL-MILK-02",
+          "offered_name": "Organic Soy Drink (Unsweetened)",
+          "offered_price_eur": 1.85,
+          "accepted": true,
+          "reason": "accepted_substitute"
+        }
+      ],
+      "checkout": {
+        "valid": true,
+        "total_eur": 9.9,
+        "budget_eur": 13.0,
+        "errors": [],
+        "primary_failure": null
+      },
+      "tool_log": [
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "oats",
+            "query": "gluten-free oats",
+            "dietary": [
+              "vegan",
+              "nut_free"
+            ],
+            "in_stock_only": false
+          },
+          "result_skus": [
+            "OATS-GF-01",
+            "OATS-01"
+          ]
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "OATS-GF-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "OATS-GF-01",
+            "name": "Certified Gluten-Free Rolled Oats",
+            "exists": true,
+            "available": true,
+            "stock": 12,
+            "price_eur": 2.6
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "OATS-GF-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "OATS-GF-01",
+            "name": "Certified Gluten-Free Rolled Oats",
+            "brand": "Verde Campo",
+            "subcategory": "oats",
+            "requested_subcategory": "oats",
+            "quantity": 1,
+            "unit_price_eur": 2.6,
+            "line_total_eur": 2.6,
+            "substituted_for": null,
+            "color_hex": "#854d0e"
+          }
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "CHILL-MILK-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "CHILL-MILK-01",
+            "name": "Barista Oat Drink",
+            "exists": true,
+            "available": false,
+            "stock": 0,
+            "price_eur": 2.15
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "milk",
+            "query": null,
+            "dietary": [
+              "vegan",
+              "nut_free"
+            ],
+            "in_stock_only": true
+          },
+          "result_skus": [
+            "CHILL-MILK-02"
+          ]
+        },
+        {
+          "tool": "find_substitute",
+          "args": {
+            "sold_out_sku": "CHILL-MILK-01",
+            "dietary": [
+              "vegan",
+              "nut_free"
+            ],
+            "max_unit_price": 10.4
+          },
+          "result": {
+            "sku": "CHILL-MILK-02",
+            "name": "Organic Soy Drink (Unsweetened)",
+            "price_eur": 1.85
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "CHILL-MILK-02",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "CHILL-MILK-02",
+            "name": "Organic Soy Drink (Unsweetened)",
+            "brand": "PureGrain",
+            "subcategory": "milk",
+            "requested_subcategory": "milk",
+            "quantity": 1,
+            "unit_price_eur": 1.85,
+            "line_total_eur": 1.85,
+            "substituted_for": "CHILL-MILK-01",
+            "color_hex": "#0284c7"
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "fruit",
+            "query": "bananas",
+            "dietary": [
+              "vegan",
+              "nut_free"
+            ],
+            "in_stock_only": false
+          },
+          "result_skus": [
+            "PROD-BAN-01",
+            "PROD-APPLE-01"
+          ]
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "PROD-BAN-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "PROD-BAN-01",
+            "name": "Organic Fairtrade Bananas",
+            "exists": true,
+            "available": true,
+            "stock": 22,
+            "price_eur": 1.85
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "PROD-BAN-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "PROD-BAN-01",
+            "name": "Organic Fairtrade Bananas",
+            "brand": "Verde Campo",
+            "subcategory": "fruit",
+            "requested_subcategory": "fruit",
+            "quantity": 1,
+            "unit_price_eur": 1.85,
+            "line_total_eur": 1.85,
+            "substituted_for": null,
+            "color_hex": "#facc15"
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "granola",
+            "query": "nut-free granola",
+            "dietary": [
+              "vegan",
+              "nut_free"
+            ],
+            "in_stock_only": false
+          },
+          "result_skus": [
+            "GRANOLA-NF-01"
+          ]
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "GRANOLA-NF-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "GRANOLA-NF-01",
+            "name": "Maple Seed Nut-Free Granola",
+            "exists": true,
+            "available": true,
+            "stock": 9,
+            "price_eur": 3.6
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "GRANOLA-NF-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "GRANOLA-NF-01",
+            "name": "Maple Seed Nut-Free Granola",
+            "brand": "PureGrain",
+            "subcategory": "granola",
+            "requested_subcategory": "granola",
+            "quantity": 1,
+            "unit_price_eur": 3.6,
+            "line_total_eur": 3.6,
+            "substituted_for": null,
+            "color_hex": "#d97706"
+          }
+        },
+        {
+          "tool": "validate_checkout",
+          "result": {
+            "valid": true,
+            "total_eur": 9.9,
+            "budget_eur": 13.0,
+            "errors": [],
+            "primary_failure": null
+          }
+        }
+      ],
+      "timeline": [
+        {
+          "t": 1.55,
+          "type": "enter_store",
+          "zone": "entrance",
+          "x": -7.4,
+          "z": 5.05,
+          "detail": "Ines (B) entered AI Grocery Lab",
+          "basket_total": 0.0
+        },
+        {
+          "t": 3.35,
+          "type": "move_to_shelf",
+          "zone": "aisle_2",
+          "x": 1.78,
+          "z": 1.45,
+          "sku": "OATS-GF-01",
+          "detail": "Checking Certified Gluten-Free Rolled Oats (\u20ac2.60)",
+          "basket_total": 0
+        },
+        {
+          "t": 4.35,
+          "type": "pickup",
+          "zone": "aisle_2",
+          "x": 1.78,
+          "z": 1.45,
+          "sku": "OATS-GF-01",
+          "detail": "Added 1\u00d7 Certified Gluten-Free Rolled Oats (\u20ac2.60)",
+          "payload": {
+            "color_hex": "#854d0e",
+            "price_eur": 2.6
+          },
+          "basket_total": 2.6
+        },
+        {
+          "t": 6.15,
+          "type": "move_to_shelf",
+          "zone": "chilled",
+          "x": 2.88,
+          "z": -4.25,
+          "sku": "CHILL-MILK-01",
+          "detail": "Checking Barista Oat Drink (\u20ac2.15)",
+          "basket_total": 2.6
+        },
+        {
+          "t": 7.25,
+          "type": "stockout",
+          "zone": "chilled",
+          "x": 2.88,
+          "z": -4.25,
+          "sku": "CHILL-MILK-01",
+          "detail": "Sold out: Barista Oat Drink (0 in stock)",
+          "basket_total": 2.6
+        },
+        {
+          "t": 8.35,
+          "type": "substitute_offered",
+          "zone": "chilled",
+          "x": 3.88,
+          "z": -4.25,
+          "sku": "CHILL-MILK-02",
+          "detail": "Assistant suggested Organic Soy Drink (Unsweetened) (\u20ac1.85)",
+          "basket_total": 2.6
+        },
+        {
+          "t": 9.35,
+          "type": "substitute_accepted",
+          "zone": "chilled",
+          "x": 3.88,
+          "z": -4.25,
+          "sku": "CHILL-MILK-02",
+          "detail": "Accepted substitute: Organic Soy Drink (Unsweetened) (\u20ac1.85)",
+          "payload": {
+            "color_hex": "#0284c7",
+            "price_eur": 1.85
+          },
+          "basket_total": 4.45
+        },
+        {
+          "t": 11.15,
+          "type": "move_to_shelf",
+          "zone": "produce",
+          "x": -5.32,
+          "z": 2.65,
+          "sku": "PROD-BAN-01",
+          "detail": "Checking Organic Fairtrade Bananas (\u20ac1.85)",
+          "basket_total": 4.45
+        },
+        {
+          "t": 12.15,
+          "type": "pickup",
+          "zone": "produce",
+          "x": -5.32,
+          "z": 2.65,
+          "sku": "PROD-BAN-01",
+          "detail": "Added 1\u00d7 Organic Fairtrade Bananas (\u20ac1.85)",
+          "payload": {
+            "color_hex": "#facc15",
+            "price_eur": 1.85
+          },
+          "basket_total": 6.3
+        },
+        {
+          "t": 13.95,
+          "type": "move_to_shelf",
+          "zone": "aisle_2",
+          "x": 1.88,
+          "z": 1.85,
+          "sku": "GRANOLA-NF-01",
+          "detail": "Checking Maple Seed Nut-Free Granola (\u20ac3.60)",
+          "basket_total": 6.3
+        },
+        {
+          "t": 14.95,
+          "type": "pickup",
+          "zone": "aisle_2",
+          "x": 1.88,
+          "z": 1.85,
+          "sku": "GRANOLA-NF-01",
+          "detail": "Added 1\u00d7 Maple Seed Nut-Free Granola (\u20ac3.60)",
+          "payload": {
+            "color_hex": "#d97706",
+            "price_eur": 3.6
+          },
+          "basket_total": 9.9
+        },
+        {
+          "t": 16.95,
+          "type": "move_to_checkout",
+          "zone": "checkout_1",
+          "x": 0.75,
+          "z": 3.7,
+          "detail": "Checking stock, dietary requirements, and budget at checkout",
+          "basket_total": 9.9
+        },
+        {
+          "t": 18.15,
+          "type": "checkout_complete",
+          "zone": "checkout_1",
+          "x": 0.75,
+          "z": 3.7,
+          "detail": "Valid basket \u2014 simulated checkout complete (\u20ac9.90 / \u20ac13.00)",
+          "basket_total": 9.9
+        }
+      ],
+      "duration_sec": 19.35,
+      "is_flagship": false,
+      "matched_shopper_id": "A4"
+    },
+    {
+      "trip_id": "flagship_store_seed_2026_A5",
+      "run_id": "flagship_store_seed_2026",
+      "pair_id": 5,
+      "arm": "A",
+      "shopper_id": "A5",
+      "shopper_name": "Amine",
+      "shirt_color": "#6366f1",
+      "shopper_profile": "budget_conscious",
+      "shopper_profile_label": "Budget-Conscious",
+      "request_text": "High-protein lunch prep under \u20ac14: smoked tofu, lentils, mushrooms, and Greek yogurt.",
+      "budget_eur": 14.0,
+      "dietary_req": [
+        "vegetarian",
+        "high_protein"
+      ],
+      "preferred_brand": null,
+      "prompt_version": "v2_structured_constraints",
+      "model_version": "qwen2.5:1.5b (1.5B Q4_K_M )",
+      "had_stockout": true,
+      "stockout_sku": "CHILL-TOFU-01",
+      "substitute_offered": false,
+      "substitute_accepted": false,
+      "extra_searches": 1,
+      "abandoned": true,
+      "checkout_valid": false,
+      "failure_stage": "catalog_search",
+      "failure_reason": "no_matching_product:vegetables",
+      "basket_total_eur": 4.25,
+      "basket": [
+        {
+          "sku": "CHILL-TOFU-02",
+          "name": "Organic Natural Extra-Firm Tofu",
+          "brand": "PureGrain",
+          "subcategory": "tofu",
+          "requested_subcategory": "tofu",
+          "quantity": 1,
+          "unit_price_eur": 2.3,
+          "line_total_eur": 2.3,
+          "substituted_for": "CHILL-TOFU-01",
+          "color_hex": "#e4e4e7"
+        },
+        {
+          "sku": "LEG-LENT-01",
+          "name": "Green Puy Lentils",
+          "brand": "PureGrain",
+          "subcategory": "legumes",
+          "requested_subcategory": "legumes",
+          "quantity": 1,
+          "unit_price_eur": 1.95,
+          "line_total_eur": 1.95,
+          "substituted_for": null,
+          "color_hex": "#65a30d"
+        }
+      ],
+      "recommendations": [],
+      "checkout": {
+        "valid": false,
+        "total_eur": 4.25,
+        "budget_eur": 14.0,
+        "errors": [],
+        "primary_failure": "no_matching_product:vegetables"
+      },
+      "tool_log": [
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "CHILL-TOFU-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "CHILL-TOFU-01",
+            "name": "Organic Firm Smoked Tofu",
+            "exists": true,
+            "available": false,
+            "stock": 0,
+            "price_eur": 2.6
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "tofu",
+            "query": null,
+            "dietary": [
+              "vegetarian",
+              "high_protein"
+            ],
+            "in_stock_only": true
+          },
+          "result_skus": [
+            "CHILL-TOFU-02"
+          ]
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "CHILL-TOFU-02",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "CHILL-TOFU-02",
+            "name": "Organic Natural Extra-Firm Tofu",
+            "brand": "PureGrain",
+            "subcategory": "tofu",
+            "requested_subcategory": "tofu",
+            "quantity": 1,
+            "unit_price_eur": 2.3,
+            "line_total_eur": 2.3,
+            "substituted_for": "CHILL-TOFU-01",
+            "color_hex": "#e4e4e7"
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "legumes",
+            "query": "lentils",
+            "dietary": [
+              "vegetarian",
+              "high_protein"
+            ],
+            "in_stock_only": false
+          },
+          "result_skus": [
+            "LEG-LENT-01",
+            "LEG-CHICK-01"
+          ]
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "LEG-LENT-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "LEG-LENT-01",
+            "name": "Green Puy Lentils",
+            "exists": true,
+            "available": true,
+            "stock": 15,
+            "price_eur": 1.95
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "LEG-LENT-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "LEG-LENT-01",
+            "name": "Green Puy Lentils",
+            "brand": "PureGrain",
+            "subcategory": "legumes",
+            "requested_subcategory": "legumes",
+            "quantity": 1,
+            "unit_price_eur": 1.95,
+            "line_total_eur": 1.95,
+            "substituted_for": null,
+            "color_hex": "#65a30d"
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "vegetables",
+            "query": "mushrooms",
+            "dietary": [
+              "vegetarian",
+              "high_protein"
+            ],
+            "in_stock_only": false
+          },
+          "result_skus": []
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "vegetables",
+            "query": "mushrooms",
+            "dietary": [
+              "vegetarian",
+              "high_protein"
+            ],
+            "in_stock_only": true
+          },
+          "result_skus": []
+        }
+      ],
+      "timeline": [
+        {
+          "t": 1.8,
+          "type": "enter_store",
+          "zone": "entrance",
+          "x": -6.75,
+          "z": 4.15,
+          "detail": "Amine (A) entered AI Grocery Lab",
+          "basket_total": 0.0
+        },
+        {
+          "t": 3.6,
+          "type": "move_to_shelf",
+          "zone": "chilled",
+          "x": 4.92,
+          "z": -4.25,
+          "sku": "CHILL-TOFU-01",
+          "detail": "Checking Organic Firm Smoked Tofu (\u20ac2.60)",
+          "basket_total": 0
+        },
+        {
+          "t": 4.7,
+          "type": "stockout",
+          "zone": "chilled",
+          "x": 4.92,
+          "z": -4.25,
+          "sku": "CHILL-TOFU-01",
+          "detail": "Sold out: Organic Firm Smoked Tofu (0 in stock)",
+          "basket_total": 0
+        },
+        {
+          "t": 6.1,
+          "type": "extra_search",
+          "zone": "chilled",
+          "x": 5.27,
+          "z": -4.25,
+          "detail": "Searching aisle independently (attempt 1)",
+          "basket_total": 0
+        },
+        {
+          "t": 7.1,
+          "type": "pickup",
+          "zone": "chilled",
+          "x": 5.55,
+          "z": -4.25,
+          "sku": "CHILL-TOFU-02",
+          "detail": "Found alternative on own: Organic Natural Extra-Firm Tofu (\u20ac2.30)",
+          "payload": {
+            "color_hex": "#e4e4e7",
+            "price_eur": 2.3
+          },
+          "basket_total": 2.3
+        },
+        {
+          "t": 8.9,
+          "type": "move_to_shelf",
+          "zone": "aisle_2",
+          "x": 1.22,
+          "z": -0.05,
+          "sku": "LEG-LENT-01",
+          "detail": "Checking Green Puy Lentils (\u20ac1.95)",
+          "basket_total": 2.3
+        },
+        {
+          "t": 9.9,
+          "type": "pickup",
+          "zone": "aisle_2",
+          "x": 1.22,
+          "z": -0.05,
+          "sku": "LEG-LENT-01",
+          "detail": "Added 1\u00d7 Green Puy Lentils (\u20ac1.95)",
+          "payload": {
+            "color_hex": "#65a30d",
+            "price_eur": 1.95
+          },
+          "basket_total": 4.25
+        },
+        {
+          "t": 11.3,
+          "type": "abandon",
+          "zone": "entrance",
+          "x": -6.75,
+          "z": 4.15,
+          "detail": "No suitable vegetables found \u2014 trip abandoned",
+          "basket_total": 4.25
+        }
+      ],
+      "duration_sec": 12.5,
+      "is_flagship": false,
+      "matched_shopper_id": "B5"
+    },
+    {
+      "trip_id": "flagship_store_seed_2026_B5",
+      "run_id": "flagship_store_seed_2026",
+      "pair_id": 5,
+      "arm": "B",
+      "shopper_id": "B5",
+      "shopper_name": "Chloe",
+      "shirt_color": "#84cc16",
+      "shopper_profile": "budget_conscious",
+      "shopper_profile_label": "Budget-Conscious",
+      "request_text": "High-protein lunch prep under \u20ac14: smoked tofu, lentils, mushrooms, and Greek yogurt.",
+      "budget_eur": 14.0,
+      "dietary_req": [
+        "vegetarian",
+        "high_protein"
+      ],
+      "preferred_brand": null,
+      "prompt_version": "v2_structured_constraints",
+      "model_version": "qwen2.5:1.5b (1.5B Q4_K_M )",
+      "had_stockout": true,
+      "stockout_sku": "CHILL-TOFU-01",
+      "substitute_offered": true,
+      "substitute_accepted": true,
+      "extra_searches": 0,
+      "abandoned": true,
+      "checkout_valid": false,
+      "failure_stage": "catalog_search",
+      "failure_reason": "no_matching_product:vegetables",
+      "basket_total_eur": 4.25,
+      "basket": [
+        {
+          "sku": "CHILL-TOFU-02",
+          "name": "Organic Natural Extra-Firm Tofu",
+          "brand": "PureGrain",
+          "subcategory": "tofu",
+          "requested_subcategory": "tofu",
+          "quantity": 1,
+          "unit_price_eur": 2.3,
+          "line_total_eur": 2.3,
+          "substituted_for": "CHILL-TOFU-01",
+          "color_hex": "#e4e4e7"
+        },
+        {
+          "sku": "LEG-LENT-01",
+          "name": "Green Puy Lentils",
+          "brand": "PureGrain",
+          "subcategory": "legumes",
+          "requested_subcategory": "legumes",
+          "quantity": 1,
+          "unit_price_eur": 1.95,
+          "line_total_eur": 1.95,
+          "substituted_for": null,
+          "color_hex": "#65a30d"
+        }
+      ],
+      "recommendations": [
+        {
+          "sold_out_sku": "CHILL-TOFU-01",
+          "offered_sku": "CHILL-TOFU-02",
+          "offered_name": "Organic Natural Extra-Firm Tofu",
+          "offered_price_eur": 2.3,
+          "accepted": true,
+          "reason": "accepted_substitute"
+        }
+      ],
+      "checkout": {
+        "valid": false,
+        "total_eur": 4.25,
+        "budget_eur": 14.0,
+        "errors": [],
+        "primary_failure": "no_matching_product:vegetables"
+      },
+      "tool_log": [
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "CHILL-TOFU-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "CHILL-TOFU-01",
+            "name": "Organic Firm Smoked Tofu",
+            "exists": true,
+            "available": false,
+            "stock": 0,
+            "price_eur": 2.6
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "tofu",
+            "query": null,
+            "dietary": [
+              "vegetarian",
+              "high_protein"
+            ],
+            "in_stock_only": true
+          },
+          "result_skus": [
+            "CHILL-TOFU-02"
+          ]
+        },
+        {
+          "tool": "find_substitute",
+          "args": {
+            "sold_out_sku": "CHILL-TOFU-01",
+            "dietary": [
+              "vegetarian",
+              "high_protein"
+            ],
+            "max_unit_price": 14.0
+          },
+          "result": {
+            "sku": "CHILL-TOFU-02",
+            "name": "Organic Natural Extra-Firm Tofu",
+            "price_eur": 2.3
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "CHILL-TOFU-02",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "CHILL-TOFU-02",
+            "name": "Organic Natural Extra-Firm Tofu",
+            "brand": "PureGrain",
+            "subcategory": "tofu",
+            "requested_subcategory": "tofu",
+            "quantity": 1,
+            "unit_price_eur": 2.3,
+            "line_total_eur": 2.3,
+            "substituted_for": "CHILL-TOFU-01",
+            "color_hex": "#e4e4e7"
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "legumes",
+            "query": "lentils",
+            "dietary": [
+              "vegetarian",
+              "high_protein"
+            ],
+            "in_stock_only": false
+          },
+          "result_skus": [
+            "LEG-LENT-01",
+            "LEG-CHICK-01"
+          ]
+        },
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "LEG-LENT-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "LEG-LENT-01",
+            "name": "Green Puy Lentils",
+            "exists": true,
+            "available": true,
+            "stock": 15,
+            "price_eur": 1.95
+          }
+        },
+        {
+          "tool": "add_to_basket",
+          "args": {
+            "sku": "LEG-LENT-01",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "LEG-LENT-01",
+            "name": "Green Puy Lentils",
+            "brand": "PureGrain",
+            "subcategory": "legumes",
+            "requested_subcategory": "legumes",
+            "quantity": 1,
+            "unit_price_eur": 1.95,
+            "line_total_eur": 1.95,
+            "substituted_for": null,
+            "color_hex": "#65a30d"
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "vegetables",
+            "query": "mushrooms",
+            "dietary": [
+              "vegetarian",
+              "high_protein"
+            ],
+            "in_stock_only": false
+          },
+          "result_skus": []
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "vegetables",
+            "query": "mushrooms",
+            "dietary": [
+              "vegetarian",
+              "high_protein"
+            ],
+            "in_stock_only": true
+          },
+          "result_skus": []
+        }
+      ],
+      "timeline": [
+        {
+          "t": 2.0,
+          "type": "enter_store",
+          "zone": "entrance",
+          "x": -6.75,
+          "z": 5.05,
+          "detail": "Chloe (B) entered AI Grocery Lab",
+          "basket_total": 0.0
+        },
+        {
+          "t": 3.8,
+          "type": "move_to_shelf",
+          "zone": "chilled",
+          "x": 5.48,
+          "z": -4.25,
+          "sku": "CHILL-TOFU-01",
+          "detail": "Checking Organic Firm Smoked Tofu (\u20ac2.60)",
+          "basket_total": 0
+        },
+        {
+          "t": 4.9,
+          "type": "stockout",
+          "zone": "chilled",
+          "x": 5.48,
+          "z": -4.25,
+          "sku": "CHILL-TOFU-01",
+          "detail": "Sold out: Organic Firm Smoked Tofu (0 in stock)",
+          "basket_total": 0
+        },
+        {
+          "t": 6.0,
+          "type": "substitute_offered",
+          "zone": "chilled",
+          "x": 6.08,
+          "z": -4.25,
+          "sku": "CHILL-TOFU-02",
+          "detail": "Assistant suggested Organic Natural Extra-Firm Tofu (\u20ac2.30)",
+          "basket_total": 0
+        },
+        {
+          "t": 7.0,
+          "type": "substitute_accepted",
+          "zone": "chilled",
+          "x": 6.08,
+          "z": -4.25,
+          "sku": "CHILL-TOFU-02",
+          "detail": "Accepted substitute: Organic Natural Extra-Firm Tofu (\u20ac2.30)",
+          "payload": {
+            "color_hex": "#e4e4e7",
+            "price_eur": 2.3
+          },
+          "basket_total": 2.3
+        },
+        {
+          "t": 8.8,
+          "type": "move_to_shelf",
+          "zone": "aisle_2",
+          "x": 1.78,
+          "z": -0.05,
+          "sku": "LEG-LENT-01",
+          "detail": "Checking Green Puy Lentils (\u20ac1.95)",
+          "basket_total": 2.3
+        },
+        {
+          "t": 9.8,
+          "type": "pickup",
+          "zone": "aisle_2",
+          "x": 1.78,
+          "z": -0.05,
+          "sku": "LEG-LENT-01",
+          "detail": "Added 1\u00d7 Green Puy Lentils (\u20ac1.95)",
+          "payload": {
+            "color_hex": "#65a30d",
+            "price_eur": 1.95
+          },
+          "basket_total": 4.25
+        },
+        {
+          "t": 11.2,
+          "type": "abandon",
+          "zone": "entrance",
+          "x": -6.75,
+          "z": 5.05,
+          "detail": "No suitable vegetables found \u2014 trip abandoned",
+          "basket_total": 4.25
+        }
+      ],
+      "duration_sec": 12.4,
+      "is_flagship": false,
+      "matched_shopper_id": "A5"
+    },
+    {
+      "trip_id": "flagship_store_seed_2026_A6",
+      "run_id": "flagship_store_seed_2026",
+      "pair_id": 6,
+      "arm": "A",
+      "shopper_id": "A6",
+      "shopper_name": "Elena",
+      "shirt_color": "#ec4899",
+      "shopper_profile": "impatient",
+      "shopper_profile_label": "Impatient",
+      "request_text": "Dairy-free snack & smoothie pack under \u20ac11: pea protein bar, orange juice, apples, and sourdough bread.",
+      "budget_eur": 11.0,
+      "dietary_req": [
+        "dairy_free",
+        "nut_free"
+      ],
+      "preferred_brand": null,
+      "prompt_version": "v2_structured_constraints",
+      "model_version": "qwen2.5:1.5b (1.5B Q4_K_M )",
+      "had_stockout": true,
+      "stockout_sku": "SNACK-BAR-02",
+      "substitute_offered": false,
+      "substitute_accepted": false,
+      "extra_searches": 1,
+      "abandoned": true,
+      "checkout_valid": false,
+      "failure_stage": "stockout_abandon",
+      "failure_reason": "unresolved_stockout:SNACK-BAR-02",
+      "basket_total_eur": 0,
+      "basket": [],
+      "recommendations": [],
+      "checkout": {
+        "valid": false,
+        "total_eur": 0,
+        "budget_eur": 11.0,
+        "errors": [],
+        "primary_failure": "unresolved_stockout:SNACK-BAR-02"
+      },
+      "tool_log": [
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "SNACK-BAR-02",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "SNACK-BAR-02",
+            "name": "Pea Protein Cocoa Bar (Nut-Free)",
+            "exists": true,
+            "available": false,
+            "stock": 0,
+            "price_eur": 2.3
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "protein_bar",
+            "query": null,
+            "dietary": [
+              "dairy_free",
+              "nut_free"
+            ],
+            "in_stock_only": true
+          },
+          "result_skus": []
+        }
+      ],
+      "timeline": [
+        {
+          "t": 2.25,
+          "type": "enter_store",
+          "zone": "entrance",
+          "x": -8.05,
+          "z": 4.15,
+          "detail": "Elena (A) entered AI Grocery Lab",
+          "basket_total": 0.0
+        },
+        {
+          "t": 4.05,
+          "type": "move_to_shelf",
+          "zone": "aisle_3",
+          "x": 3.82,
+          "z": 0.75,
+          "sku": "SNACK-BAR-02",
+          "detail": "Checking Pea Protein Cocoa Bar (Nut-Free) (\u20ac2.30)",
+          "basket_total": 0
+        },
+        {
+          "t": 5.15,
+          "type": "stockout",
+          "zone": "aisle_3",
+          "x": 3.82,
+          "z": 0.75,
+          "sku": "SNACK-BAR-02",
+          "detail": "Sold out: Pea Protein Cocoa Bar (Nut-Free) (0 in stock)",
+          "basket_total": 0
+        },
+        {
+          "t": 6.55,
+          "type": "extra_search",
+          "zone": "aisle_3",
+          "x": 4.17,
+          "z": 0.75,
+          "detail": "Searching aisle independently (attempt 1)",
+          "basket_total": 0
+        },
+        {
+          "t": 8.15,
+          "type": "abandon",
+          "zone": "exit",
+          "x": -1.0,
+          "z": 5.2,
+          "detail": "Abandoned trip after stockout on Pea Protein Cocoa Bar (Nut-Free)",
+          "basket_total": 0
+        }
+      ],
+      "duration_sec": 9.35,
+      "is_flagship": false,
+      "matched_shopper_id": "B6"
+    },
+    {
+      "trip_id": "flagship_store_seed_2026_B6",
+      "run_id": "flagship_store_seed_2026",
+      "pair_id": 6,
+      "arm": "B",
+      "shopper_id": "B6",
+      "shopper_name": "Noah",
+      "shirt_color": "#eab308",
+      "shopper_profile": "impatient",
+      "shopper_profile_label": "Impatient",
+      "request_text": "Dairy-free snack & smoothie pack under \u20ac11: pea protein bar, orange juice, apples, and sourdough bread.",
+      "budget_eur": 11.0,
+      "dietary_req": [
+        "dairy_free",
+        "nut_free"
+      ],
+      "preferred_brand": null,
+      "prompt_version": "v2_structured_constraints",
+      "model_version": "qwen2.5:1.5b (1.5B Q4_K_M )",
+      "had_stockout": true,
+      "stockout_sku": "SNACK-BAR-02",
+      "substitute_offered": false,
+      "substitute_accepted": false,
+      "extra_searches": 0,
+      "abandoned": true,
+      "checkout_valid": false,
+      "failure_stage": "stockout_abandon",
+      "failure_reason": "unresolved_stockout:SNACK-BAR-02",
+      "basket_total_eur": 0,
+      "basket": [],
+      "recommendations": [
+        {
+          "sold_out_sku": "SNACK-BAR-02",
+          "offered_sku": null,
+          "offered_name": null,
+          "offered_price_eur": null,
+          "accepted": false,
+          "reason": "no_suitable_substitute_available"
+        }
+      ],
+      "checkout": {
+        "valid": false,
+        "total_eur": 0,
+        "budget_eur": 11.0,
+        "errors": [],
+        "primary_failure": "unresolved_stockout:SNACK-BAR-02"
+      },
+      "tool_log": [
+        {
+          "tool": "check_stock",
+          "args": {
+            "sku": "SNACK-BAR-02",
+            "quantity": 1
+          },
+          "result": {
+            "sku": "SNACK-BAR-02",
+            "name": "Pea Protein Cocoa Bar (Nut-Free)",
+            "exists": true,
+            "available": false,
+            "stock": 0,
+            "price_eur": 2.3
+          }
+        },
+        {
+          "tool": "search_catalog",
+          "args": {
+            "subcategory": "protein_bar",
+            "query": null,
+            "dietary": [
+              "dairy_free",
+              "nut_free"
+            ],
+            "in_stock_only": true
+          },
+          "result_skus": []
+        },
+        {
+          "tool": "find_substitute",
+          "args": {
+            "sold_out_sku": "SNACK-BAR-02"
+          },
+          "result": null
+        }
+      ],
+      "timeline": [
+        {
+          "t": 2.45,
+          "type": "enter_store",
+          "zone": "entrance",
+          "x": -8.05,
+          "z": 5.05,
+          "detail": "Noah (B) entered AI Grocery Lab",
+          "basket_total": 0.0
+        },
+        {
+          "t": 4.25,
+          "type": "move_to_shelf",
+          "zone": "aisle_3",
+          "x": 4.38,
+          "z": 0.75,
+          "sku": "SNACK-BAR-02",
+          "detail": "Checking Pea Protein Cocoa Bar (Nut-Free) (\u20ac2.30)",
+          "basket_total": 0
+        },
+        {
+          "t": 5.35,
+          "type": "stockout",
+          "zone": "aisle_3",
+          "x": 4.38,
+          "z": 0.75,
+          "sku": "SNACK-BAR-02",
+          "detail": "Sold out: Pea Protein Cocoa Bar (Nut-Free) (0 in stock)",
+          "basket_total": 0
+        },
+        {
+          "t": 6.25,
+          "type": "no_substitute",
+          "zone": "aisle_3",
+          "x": 4.38,
+          "z": 0.75,
+          "sku": "SNACK-BAR-02",
+          "detail": "No suitable in-stock replacement within budget & dietary constraints",
+          "basket_total": 0
+        },
+        {
+          "t": 7.85,
+          "type": "abandon",
+          "zone": "exit",
+          "x": 0.15,
+          "z": 5.2,
+          "detail": "Abandoned trip after stockout on Pea Protein Cocoa Bar (Nut-Free)",
+          "basket_total": 0
+        }
+      ],
+      "duration_sec": 9.05,
+      "is_flagship": false,
+      "matched_shopper_id": "A6"
+    }
+  ]
+}

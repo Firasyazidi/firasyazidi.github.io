@@ -1,0 +1,1569 @@
+{
+  "prompt_eval": {
+    "run_id": "prompt_eval_20261124T012136Z",
+    "measured_at": "2026-11-24T01:47:34.346396+00:00",
+    "seed": 2026,
+    "model_version": "qwen2.5:1.5b (1.5B Q4_K_M )",
+    "dataset": "data/prompt_eval_100.json",
+    "n_requests": 100,
+    "prompts": {
+      "v1_minimal": {
+        "prompt_version": "v1_minimal",
+        "total": 100,
+        "correct": 2,
+        "accuracy_pct": 2.0,
+        "errors_by_type": {
+          "dietary_mismatch": 78,
+          "item_subcategory_mismatch": 95,
+          "budget_mismatch": 2,
+          "quantity_mismatch": 1
+        },
+        "latency_ms": {
+          "mean": 7020.7,
+          "p50": 6702.5,
+          "p95": 9728.9
+        },
+        "error_examples": [
+          {
+            "request_id": "REQ-001",
+            "request_text": "Shop for meatless dinner for two (budget 13 EUR): pasta, jar of tomato sauce, and spinach salad.",
+            "expected": {
+              "items": [
+                {
+                  "subcategory": "pasta",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "tomato_sauce",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "salad",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 13.0,
+              "dietary": [
+                "vegetarian"
+              ],
+              "preferred_brand": null
+            },
+            "got": {
+              "items": [
+                {
+                  "subcategory": "grocery",
+                  "query": "pasta",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "grocery",
+                  "query": "jar of tomato sauce",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "grocery",
+                  "query": "spinach salad",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 13.0,
+              "dietary": [],
+              "preferred_brand": null
+            },
+            "errors": [
+              "dietary_mismatch",
+              "item_subcategory_mismatch"
+            ]
+          },
+          {
+            "request_id": "REQ-002",
+            "request_text": "Shop for no gluten and meatless curry dinner (budget 10.50 EUR): jasmine rice, 1 green lentils, and a curry simmer sauce. Prefer Nonna Rosa if available.",
+            "expected": {
+              "items": [
+                {
+                  "subcategory": "rice",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "legumes",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "curry_sauce",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 10.5,
+              "dietary": [
+                "gluten_free",
+                "vegetarian"
+              ],
+              "preferred_brand": "Nonna Rosa"
+            },
+            "got": {
+              "items": [
+                {
+                  "subcategory": "rice",
+                  "query": "jasmine rice",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "dried_legumes",
+                  "query": "green lentils",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "curry_sauce",
+                  "query": "curry simmer sauce",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 10.5,
+              "dietary": [
+                "no_gluten"
+              ],
+              "preferred_brand": "Nonna Rosa"
+            },
+            "errors": [
+              "dietary_mismatch",
+              "item_subcategory_mismatch"
+            ]
+          },
+          {
+            "request_id": "REQ-003",
+            "request_text": "I need a no nuts and 100% plant-based breakfast bundle under \u20ac14.50: 1 porridge oats, 1 soy milk, and a apples.",
+            "expected": {
+              "items": [
+                {
+                  "subcategory": "oats",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "milk",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "fruit",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 14.5,
+              "dietary": [
+                "nut_free",
+                "vegan"
+              ],
+              "preferred_brand": null
+            },
+            "got": {
+              "items": [
+                {
+                  "subcategory": "grocery",
+                  "query": "porridge oats",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "grocery",
+                  "query": "soy milk",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "grocery",
+                  "query": "apples",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 14.5,
+              "dietary": [],
+              "preferred_brand": null
+            },
+            "errors": [
+              "dietary_mismatch",
+              "item_subcategory_mismatch"
+            ]
+          },
+          {
+            "request_id": "REQ-004",
+            "request_text": "I need a dairy-free and vegan high-protein meal prep under \u20ac14.50: a firm tofu, a green lentils, sliced mushrooms, and Greek yogurt.",
+            "expected": {
+              "items": [
+                {
+                  "subcategory": "tofu",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "legumes",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "vegetables",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "yogurt",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 14.5,
+              "dietary": [
+                "dairy_free",
+                "vegan"
+              ],
+              "preferred_brand": null
+            },
+            "got": {
+              "items": [
+                {
+                  "subcategory": "meat_proteins",
+                  "query": "firm tofu",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "legumes",
+                  "query": "green lentils",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "vegetables",
+                  "query": "sliced mushrooms",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "dairy_free",
+                  "query": "Greek yogurt",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 14.5,
+              "dietary": [
+                "vegan"
+              ],
+              "preferred_brand": null
+            },
+            "errors": [
+              "dietary_mismatch",
+              "item_subcategory_mismatch"
+            ]
+          },
+          {
+            "request_id": "REQ-005",
+            "request_text": "Please get a sourdough bread, 1 fresh salad, and cocoa protein bar. Must be no gluten and nut allergy safe and stay within \u20ac13.",
+            "expected": {
+              "items": [
+                {
+                  "subcategory": "bread",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "salad",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "protein_bar",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 13.0,
+              "dietary": [
+                "gluten_free",
+                "nut_free"
+              ],
+              "preferred_brand": null
+            },
+            "got": {
+              "items": [
+                {
+                  "subcategory": "bakery",
+                  "query": "sourdough bread",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "fruits",
+                  "query": "fresh salad",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "snacks",
+                  "query": "cocoa protein bar",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "gluten_free",
+                  "query": "gluten_free",
+                  "quantity": 0
+                },
+                {
+                  "subcategory": "nut_free",
+                  "query": "nut_free",
+                  "quantity": 0
+                }
+              ],
+              "budget_eur": 13.0,
+              "dietary": [
+                "no_gluten"
+              ],
+              "preferred_brand": null
+            },
+            "errors": [
+              "dietary_mismatch",
+              "item_subcategory_mismatch"
+            ]
+          },
+          {
+            "request_id": "REQ-007",
+            "request_text": "I need a no nuts and meatless dinner for two under \u20ac13.50: a penne pasta, pasta tomato sauce, and a fresh salad. Prefer PureGrain if available.",
+            "expected": {
+              "items": [
+                {
+                  "subcategory": "pasta",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "tomato_sauce",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "salad",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 13.5,
+              "dietary": [
+                "nut_free",
+                "vegetarian"
+              ],
+              "preferred_brand": "PureGrain"
+            },
+            "got": {
+              "items": [
+                {
+                  "subcategory": "pasta",
+                  "query": "penne",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "sauce",
+                  "query": "pasta tomato sauce",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "salad",
+                  "query": "fresh salad",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 13.5,
+              "dietary": [],
+              "preferred_brand": "PureGrain"
+            },
+            "errors": [
+              "dietary_mismatch",
+              "item_subcategory_mismatch"
+            ]
+          },
+          {
+            "request_id": "REQ-008",
+            "request_text": "Shop for dairy-free curry dinner (budget 13.50 EUR): jasmine rice, 1 green lentils, a curry simmer sauce, and 1 sliced mushrooms.",
+            "expected": {
+              "items": [
+                {
+                  "subcategory": "rice",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "legumes",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "curry_sauce",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "vegetables",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 13.5,
+              "dietary": [
+                "dairy_free"
+              ],
+              "preferred_brand": null
+            },
+            "got": {
+              "items": [
+                {
+                  "subcategory": "grocery",
+                  "query": "jasmine rice",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "grocery",
+                  "query": "green lentils",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "grocery",
+                  "query": "curry simmer sauce",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "grocery",
+                  "query": "sliced mushrooms",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 13.5,
+              "dietary": [
+                "dairy_free"
+              ],
+              "preferred_brand": null
+            },
+            "errors": [
+              "item_subcategory_mismatch"
+            ]
+          },
+          {
+            "request_id": "REQ-009",
+            "request_text": "Please get rolled oats, 1 oat milk, and bananas. Must be gluten-free and veggie and stay within \u20ac13. Prefer PureGrain if available.",
+            "expected": {
+              "items": [
+                {
+                  "subcategory": "oats",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "milk",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "fruit",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 13.0,
+              "dietary": [
+                "gluten_free",
+                "vegetarian"
+              ],
+              "preferred_brand": "PureGrain"
+            },
+            "got": {
+              "items": [
+                {
+                  "subcategory": "grains",
+                  "query": "rolled oats",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "dairy",
+                  "query": "oat milk",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "fruits",
+                  "query": "bananas",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 13.0,
+              "dietary": [
+                "gluten_free",
+                "veggie"
+              ],
+              "preferred_brand": "PureGrain"
+            },
+            "errors": [
+              "dietary_mismatch",
+              "item_subcategory_mismatch"
+            ]
+          }
+        ]
+      },
+      "v2_structured_constraints": {
+        "prompt_version": "v2_structured_constraints",
+        "total": 100,
+        "correct": 21,
+        "accuracy_pct": 21.0,
+        "errors_by_type": {
+          "dietary_mismatch": 54,
+          "item_subcategory_mismatch": 42
+        },
+        "latency_ms": {
+          "mean": 8463.8,
+          "p50": 6285.2,
+          "p95": 21288.5
+        },
+        "error_examples": [
+          {
+            "request_id": "REQ-002",
+            "request_text": "Shop for no gluten and meatless curry dinner (budget 10.50 EUR): jasmine rice, 1 green lentils, and a curry simmer sauce. Prefer Nonna Rosa if available.",
+            "expected": {
+              "items": [
+                {
+                  "subcategory": "rice",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "legumes",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "curry_sauce",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 10.5,
+              "dietary": [
+                "gluten_free",
+                "vegetarian"
+              ],
+              "preferred_brand": "Nonna Rosa"
+            },
+            "got": {
+              "items": [
+                {
+                  "subcategory": "rice",
+                  "query": "jasmine rice",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "legumes",
+                  "query": "green lentils",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "curry_sauce",
+                  "query": "curry simmer sauce",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 10.5,
+              "dietary": [
+                "gluten_free",
+                "meatless"
+              ],
+              "preferred_brand": "Nonna Rosa"
+            },
+            "errors": [
+              "dietary_mismatch"
+            ]
+          },
+          {
+            "request_id": "REQ-003",
+            "request_text": "I need a no nuts and 100% plant-based breakfast bundle under \u20ac14.50: 1 porridge oats, 1 soy milk, and a apples.",
+            "expected": {
+              "items": [
+                {
+                  "subcategory": "oats",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "milk",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "fruit",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 14.5,
+              "dietary": [
+                "nut_free",
+                "vegan"
+              ],
+              "preferred_brand": null
+            },
+            "got": {
+              "items": [
+                {
+                  "subcategory": "oats",
+                  "query": "porridge oats",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "milk",
+                  "query": "soy milk",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "fruit",
+                  "query": "apples",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 14.5,
+              "dietary": [
+                "plant_based"
+              ],
+              "preferred_brand": null
+            },
+            "errors": [
+              "dietary_mismatch"
+            ]
+          },
+          {
+            "request_id": "REQ-004",
+            "request_text": "I need a dairy-free and vegan high-protein meal prep under \u20ac14.50: a firm tofu, a green lentils, sliced mushrooms, and Greek yogurt.",
+            "expected": {
+              "items": [
+                {
+                  "subcategory": "tofu",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "legumes",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "vegetables",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "yogurt",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 14.5,
+              "dietary": [
+                "dairy_free",
+                "vegan"
+              ],
+              "preferred_brand": null
+            },
+            "got": {
+              "items": [
+                {
+                  "subcategory": "protein_bar",
+                  "query": "firm tofu",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "legumes",
+                  "query": "green lentils",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "vegetables",
+                  "query": "sliced mushrooms",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "yogurt",
+                  "query": "Greek yogurt",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 14.5,
+              "dietary": [
+                "gluten_free",
+                "high_protein",
+                "vegan"
+              ],
+              "preferred_brand": null
+            },
+            "errors": [
+              "dietary_mismatch",
+              "item_subcategory_mismatch"
+            ]
+          },
+          {
+            "request_id": "REQ-006",
+            "request_text": "Shop for gluten-free and vegetarian pasta & pesto supper (budget 13.50 EUR): a pasta, a jar of pesto, a cherry tomatoes, and 1 6-pack mineral water.",
+            "expected": {
+              "items": [
+                {
+                  "subcategory": "pasta",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "pesto",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "tomatoes",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "water",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 13.5,
+              "dietary": [
+                "gluten_free",
+                "vegetarian"
+              ],
+              "preferred_brand": null
+            },
+            "got": {
+              "items": [
+                {
+                  "subcategory": "pasta",
+                  "query": "pasta",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "pesto",
+                  "query": "pesto",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "tomatoes",
+                  "query": "cherry tomatoes",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "water",
+                  "query": "6-pack mineral water",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 13.5,
+              "dietary": [
+                "vegetarian"
+              ],
+              "preferred_brand": null
+            },
+            "errors": [
+              "dietary_mismatch"
+            ]
+          },
+          {
+            "request_id": "REQ-007",
+            "request_text": "I need a no nuts and meatless dinner for two under \u20ac13.50: a penne pasta, pasta tomato sauce, and a fresh salad. Prefer PureGrain if available.",
+            "expected": {
+              "items": [
+                {
+                  "subcategory": "pasta",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "tomato_sauce",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "salad",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 13.5,
+              "dietary": [
+                "nut_free",
+                "vegetarian"
+              ],
+              "preferred_brand": "PureGrain"
+            },
+            "got": {
+              "items": [
+                {
+                  "subcategory": "pasta",
+                  "query": "penne pasta",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "tomato_sauce",
+                  "query": "pasta tomato sauce",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "salad",
+                  "query": "fresh salad",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 13.5,
+              "dietary": [
+                "vegan",
+                "vegetarian"
+              ],
+              "preferred_brand": "PureGrain"
+            },
+            "errors": [
+              "dietary_mismatch"
+            ]
+          },
+          {
+            "request_id": "REQ-008",
+            "request_text": "Shop for dairy-free curry dinner (budget 13.50 EUR): jasmine rice, 1 green lentils, a curry simmer sauce, and 1 sliced mushrooms.",
+            "expected": {
+              "items": [
+                {
+                  "subcategory": "rice",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "legumes",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "curry_sauce",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "vegetables",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 13.5,
+              "dietary": [
+                "dairy_free"
+              ],
+              "preferred_brand": null
+            },
+            "got": {
+              "items": [
+                {
+                  "subcategory": "rice",
+                  "query": "jasmine rice",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "legumes",
+                  "query": "green lentils",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "curry_sauce",
+                  "query": "curry simmer sauce",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "protein",
+                  "query": "sliced mushrooms",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 13.5,
+              "dietary": [
+                "dairy_free"
+              ],
+              "preferred_brand": null
+            },
+            "errors": [
+              "item_subcategory_mismatch"
+            ]
+          },
+          {
+            "request_id": "REQ-009",
+            "request_text": "Please get rolled oats, 1 oat milk, and bananas. Must be gluten-free and veggie and stay within \u20ac13. Prefer PureGrain if available.",
+            "expected": {
+              "items": [
+                {
+                  "subcategory": "oats",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "milk",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "fruit",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 13.0,
+              "dietary": [
+                "gluten_free",
+                "vegetarian"
+              ],
+              "preferred_brand": "PureGrain"
+            },
+            "got": {
+              "items": [
+                {
+                  "subcategory": "oats",
+                  "query": "gluten-free oats",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "milk",
+                  "query": "oat milk",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "fruit",
+                  "query": "bananas",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 13.0,
+              "dietary": [
+                "vegetarian"
+              ],
+              "preferred_brand": "PureGrain"
+            },
+            "errors": [
+              "dietary_mismatch"
+            ]
+          },
+          {
+            "request_id": "REQ-010",
+            "request_text": "Please get firm tofu, chickpeas, a broccoli, and Greek yogurt. Must be celiac-safe and nut allergy safe and stay within \u20ac14. Prefer Casa Sole if available.",
+            "expected": {
+              "items": [
+                {
+                  "subcategory": "tofu",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "legumes",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "vegetables",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "yogurt",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 14.0,
+              "dietary": [
+                "gluten_free",
+                "nut_free"
+              ],
+              "preferred_brand": "Casa Sole"
+            },
+            "got": {
+              "items": [
+                {
+                  "subcategory": "tofu",
+                  "query": "firm tofu",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "chickpeas",
+                  "query": "chickpeas",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "broccoli",
+                  "query": "broccoli",
+                  "quantity": 1
+                },
+                {
+                  "subcategory": "yogurt",
+                  "query": "Greek yogurt",
+                  "quantity": 1
+                }
+              ],
+              "budget_eur": 14.0,
+              "dietary": [
+                "gluten_free",
+                "nut_free"
+              ],
+              "preferred_brand": "Casa Sole"
+            },
+            "errors": [
+              "item_subcategory_mismatch"
+            ]
+          }
+        ]
+      }
+    },
+    "delta_v2_minus_v1_pp": 19.0,
+    "selected_prompt": "v2_structured_constraints"
+  },
+  "ab_simulation": {
+    "measured_at": "2026-11-24T01:48:42.322514+00:00",
+    "label": "Simulated checkout outcomes (not real customer conversion)",
+    "seed": 42,
+    "n_pairs": 300,
+    "prompt_version": "v2_structured_constraints",
+    "model_version": "qwen2.5:1.5b",
+    "dataset": "data/ab_scenarios_300.json",
+    "primary": {
+      "run_id": "ab_300_balanced_seed_42",
+      "mix_name": "balanced",
+      "mix_weights": {
+        "budget_conscious": 0.3,
+        "brand_loyal": 0.25,
+        "impatient": 0.25,
+        "flexible": 0.2
+      },
+      "seed": 42,
+      "stats": {
+        "n_pairs": 300,
+        "a_valid_count": 127,
+        "b_valid_count": 177,
+        "a_valid_rate_pct": 42.33,
+        "b_valid_rate_pct": 59.0,
+        "diff_pp": 16.67,
+        "ci95_low_pp": 11.51,
+        "ci95_high_pp": 21.83,
+        "discordant_b_wins": 60,
+        "discordant_a_wins": 10,
+        "both_valid": 117,
+        "both_failed": 113,
+        "mcnemar_exact_p": 0.0
+      },
+      "extra_searches": {
+        "group_a_total": 166,
+        "group_b_total": 57,
+        "group_a_per_trip": 0.553,
+        "group_b_per_trip": 0.19
+      },
+      "substitutions_group_b": {
+        "offered": 195,
+        "accepted": 119,
+        "acceptance_rate_pct": 61.0
+      },
+      "sql_analysis": {
+        "by_stage": [
+          {
+            "arm": "A",
+            "outcome_stage": "stockout_abandon",
+            "trips": 157,
+            "pct": 52.33
+          },
+          {
+            "arm": "A",
+            "outcome_stage": "valid_checkout",
+            "trips": 127,
+            "pct": 42.33
+          },
+          {
+            "arm": "A",
+            "outcome_stage": "catalog_search",
+            "trips": 14,
+            "pct": 4.67
+          },
+          {
+            "arm": "A",
+            "outcome_stage": "checkout_validation",
+            "trips": 2,
+            "pct": 0.67
+          },
+          {
+            "arm": "B",
+            "outcome_stage": "valid_checkout",
+            "trips": 177,
+            "pct": 59.0
+          },
+          {
+            "arm": "B",
+            "outcome_stage": "substitute_rejected_abandon",
+            "trips": 73,
+            "pct": 24.33
+          },
+          {
+            "arm": "B",
+            "outcome_stage": "stockout_abandon",
+            "trips": 30,
+            "pct": 10.0
+          },
+          {
+            "arm": "B",
+            "outcome_stage": "catalog_search",
+            "trips": 16,
+            "pct": 5.33
+          },
+          {
+            "arm": "B",
+            "outcome_stage": "checkout_validation",
+            "trips": 4,
+            "pct": 1.33
+          }
+        ],
+        "by_profile": [
+          {
+            "shopper_profile": "brand_loyal",
+            "arm": "A",
+            "trips": 72,
+            "valid_checkouts": 34,
+            "valid_rate_pct": 47.22,
+            "total_extra_searches": 42,
+            "substitutes_offered": 0,
+            "substitutes_accepted": 0
+          },
+          {
+            "shopper_profile": "brand_loyal",
+            "arm": "B",
+            "trips": 72,
+            "valid_checkouts": 39,
+            "valid_rate_pct": 54.17,
+            "total_extra_searches": 15,
+            "substitutes_offered": 49,
+            "substitutes_accepted": 24
+          },
+          {
+            "shopper_profile": "budget_conscious",
+            "arm": "A",
+            "trips": 86,
+            "valid_checkouts": 37,
+            "valid_rate_pct": 43.02,
+            "total_extra_searches": 63,
+            "substitutes_offered": 0,
+            "substitutes_accepted": 0
+          },
+          {
+            "shopper_profile": "budget_conscious",
+            "arm": "B",
+            "trips": 86,
+            "valid_checkouts": 53,
+            "valid_rate_pct": 61.63,
+            "total_extra_searches": 17,
+            "substitutes_offered": 61,
+            "substitutes_accepted": 40
+          },
+          {
+            "shopper_profile": "flexible",
+            "arm": "A",
+            "trips": 61,
+            "valid_checkouts": 30,
+            "valid_rate_pct": 49.18,
+            "total_extra_searches": 41,
+            "substitutes_offered": 0,
+            "substitutes_accepted": 0
+          },
+          {
+            "shopper_profile": "flexible",
+            "arm": "B",
+            "trips": 61,
+            "valid_checkouts": 38,
+            "valid_rate_pct": 62.3,
+            "total_extra_searches": 19,
+            "substitutes_offered": 38,
+            "substitutes_accepted": 26
+          },
+          {
+            "shopper_profile": "impatient",
+            "arm": "A",
+            "trips": 81,
+            "valid_checkouts": 26,
+            "valid_rate_pct": 32.1,
+            "total_extra_searches": 20,
+            "substitutes_offered": 0,
+            "substitutes_accepted": 0
+          },
+          {
+            "shopper_profile": "impatient",
+            "arm": "B",
+            "trips": 81,
+            "valid_checkouts": 47,
+            "valid_rate_pct": 58.02,
+            "total_extra_searches": 6,
+            "substitutes_offered": 47,
+            "substitutes_accepted": 29
+          }
+        ],
+        "stockout_subset": [
+          {
+            "arm": "A",
+            "stockout_trips": 225,
+            "recovered_checkouts": 60,
+            "recovery_rate_pct": 26.67,
+            "avg_extra_searches": 0.738,
+            "offered": 0,
+            "accepted": 0
+          },
+          {
+            "arm": "B",
+            "stockout_trips": 225,
+            "recovered_checkouts": 110,
+            "recovery_rate_pct": 48.89,
+            "avg_extra_searches": 0.253,
+            "offered": 195,
+            "accepted": 119
+          }
+        ]
+      }
+    },
+    "sensitivity": {
+      "high_brand_loyalty": {
+        "run_id": "ab_300_high_brand_loyalty_seed_142",
+        "mix_name": "high_brand_loyalty",
+        "mix_weights": {
+          "budget_conscious": 0.2,
+          "brand_loyal": 0.5,
+          "impatient": 0.15,
+          "flexible": 0.15
+        },
+        "seed": 142,
+        "stats": {
+          "n_pairs": 300,
+          "a_valid_count": 141,
+          "b_valid_count": 162,
+          "a_valid_rate_pct": 47.0,
+          "b_valid_rate_pct": 54.0,
+          "diff_pp": 7.0,
+          "ci95_low_pp": 1.76,
+          "ci95_high_pp": 12.24,
+          "discordant_b_wins": 43,
+          "discordant_a_wins": 22,
+          "both_valid": 119,
+          "both_failed": 116,
+          "mcnemar_exact_p": 0.012503
+        },
+        "extra_searches": {
+          "group_a_total": 187,
+          "group_b_total": 76,
+          "group_a_per_trip": 0.623,
+          "group_b_per_trip": 0.253
+        },
+        "substitutions_group_b": {
+          "offered": 195,
+          "accepted": 103,
+          "acceptance_rate_pct": 52.8
+        },
+        "sql_analysis": {
+          "by_stage": [
+            {
+              "arm": "A",
+              "outcome_stage": "stockout_abandon",
+              "trips": 144,
+              "pct": 48.0
+            },
+            {
+              "arm": "A",
+              "outcome_stage": "valid_checkout",
+              "trips": 141,
+              "pct": 47.0
+            },
+            {
+              "arm": "A",
+              "outcome_stage": "catalog_search",
+              "trips": 13,
+              "pct": 4.33
+            },
+            {
+              "arm": "A",
+              "outcome_stage": "checkout_validation",
+              "trips": 2,
+              "pct": 0.67
+            },
+            {
+              "arm": "B",
+              "outcome_stage": "valid_checkout",
+              "trips": 162,
+              "pct": 54.0
+            },
+            {
+              "arm": "B",
+              "outcome_stage": "substitute_rejected_abandon",
+              "trips": 91,
+              "pct": 30.33
+            },
+            {
+              "arm": "B",
+              "outcome_stage": "stockout_abandon",
+              "trips": 30,
+              "pct": 10.0
+            },
+            {
+              "arm": "B",
+              "outcome_stage": "catalog_search",
+              "trips": 15,
+              "pct": 5.0
+            },
+            {
+              "arm": "B",
+              "outcome_stage": "checkout_validation",
+              "trips": 2,
+              "pct": 0.67
+            }
+          ],
+          "by_profile": [
+            {
+              "shopper_profile": "brand_loyal",
+              "arm": "A",
+              "trips": 143,
+              "valid_checkouts": 62,
+              "valid_rate_pct": 43.36,
+              "total_extra_searches": 82,
+              "substitutes_offered": 0,
+              "substitutes_accepted": 0
+            },
+            {
+              "shopper_profile": "brand_loyal",
+              "arm": "B",
+              "trips": 143,
+              "valid_checkouts": 64,
+              "valid_rate_pct": 44.76,
+              "total_extra_searches": 46,
+              "substitutes_offered": 95,
+              "substitutes_accepted": 40
+            },
+            {
+              "shopper_profile": "budget_conscious",
+              "arm": "A",
+              "trips": 70,
+              "valid_checkouts": 38,
+              "valid_rate_pct": 54.29,
+              "total_extra_searches": 61,
+              "substitutes_offered": 0,
+              "substitutes_accepted": 0
+            },
+            {
+              "shopper_profile": "budget_conscious",
+              "arm": "B",
+              "trips": 70,
+              "valid_checkouts": 44,
+              "valid_rate_pct": 62.86,
+              "total_extra_searches": 18,
+              "substitutes_offered": 48,
+              "substitutes_accepted": 28
+            },
+            {
+              "shopper_profile": "flexible",
+              "arm": "A",
+              "trips": 47,
+              "valid_checkouts": 24,
+              "valid_rate_pct": 51.06,
+              "total_extra_searches": 34,
+              "substitutes_offered": 0,
+              "substitutes_accepted": 0
+            },
+            {
+              "shopper_profile": "flexible",
+              "arm": "B",
+              "trips": 47,
+              "valid_checkouts": 31,
+              "valid_rate_pct": 65.96,
+              "total_extra_searches": 9,
+              "substitutes_offered": 30,
+              "substitutes_accepted": 25
+            },
+            {
+              "shopper_profile": "impatient",
+              "arm": "A",
+              "trips": 40,
+              "valid_checkouts": 17,
+              "valid_rate_pct": 42.5,
+              "total_extra_searches": 10,
+              "substitutes_offered": 0,
+              "substitutes_accepted": 0
+            },
+            {
+              "shopper_profile": "impatient",
+              "arm": "B",
+              "trips": 40,
+              "valid_checkouts": 23,
+              "valid_rate_pct": 57.5,
+              "total_extra_searches": 3,
+              "substitutes_offered": 22,
+              "substitutes_accepted": 10
+            }
+          ],
+          "stockout_subset": [
+            {
+              "arm": "A",
+              "stockout_trips": 225,
+              "recovered_checkouts": 74,
+              "recovery_rate_pct": 32.89,
+              "avg_extra_searches": 0.831,
+              "offered": 0,
+              "accepted": 0
+            },
+            {
+              "arm": "B",
+              "stockout_trips": 225,
+              "recovered_checkouts": 95,
+              "recovery_rate_pct": 42.22,
+              "avg_extra_searches": 0.338,
+              "offered": 195,
+              "accepted": 103
+            }
+          ]
+        }
+      },
+      "high_impatience": {
+        "run_id": "ab_300_high_impatience_seed_242",
+        "mix_name": "high_impatience",
+        "mix_weights": {
+          "budget_conscious": 0.2,
+          "brand_loyal": 0.15,
+          "impatient": 0.5,
+          "flexible": 0.15
+        },
+        "seed": 242,
+        "stats": {
+          "n_pairs": 300,
+          "a_valid_count": 119,
+          "b_valid_count": 177,
+          "a_valid_rate_pct": 39.67,
+          "b_valid_rate_pct": 59.0,
+          "diff_pp": 19.33,
+          "ci95_low_pp": 13.81,
+          "ci95_high_pp": 24.86,
+          "discordant_b_wins": 70,
+          "discordant_a_wins": 12,
+          "both_valid": 107,
+          "both_failed": 111,
+          "mcnemar_exact_p": 0.0
+        },
+        "extra_searches": {
+          "group_a_total": 137,
+          "group_b_total": 28,
+          "group_a_per_trip": 0.457,
+          "group_b_per_trip": 0.093
+        },
+        "substitutions_group_b": {
+          "offered": 195,
+          "accepted": 125,
+          "acceptance_rate_pct": 64.1
+        },
+        "sql_analysis": {
+          "by_stage": [
+            {
+              "arm": "A",
+              "outcome_stage": "stockout_abandon",
+              "trips": 165,
+              "pct": 55.0
+            },
+            {
+              "arm": "A",
+              "outcome_stage": "valid_checkout",
+              "trips": 119,
+              "pct": 39.67
+            },
+            {
+              "arm": "A",
+              "outcome_stage": "catalog_search",
+              "trips": 15,
+              "pct": 5.0
+            },
+            {
+              "arm": "A",
+              "outcome_stage": "checkout_validation",
+              "trips": 1,
+              "pct": 0.33
+            },
+            {
+              "arm": "B",
+              "outcome_stage": "valid_checkout",
+              "trips": 177,
+              "pct": 59.0
+            },
+            {
+              "arm": "B",
+              "outcome_stage": "substitute_rejected_abandon",
+              "trips": 70,
+              "pct": 23.33
+            },
+            {
+              "arm": "B",
+              "outcome_stage": "stockout_abandon",
+              "trips": 30,
+              "pct": 10.0
+            },
+            {
+              "arm": "B",
+              "outcome_stage": "catalog_search",
+              "trips": 19,
+              "pct": 6.33
+            },
+            {
+              "arm": "B",
+              "outcome_stage": "checkout_validation",
+              "trips": 4,
+              "pct": 1.33
+            }
+          ],
+          "by_profile": [
+            {
+              "shopper_profile": "brand_loyal",
+              "arm": "A",
+              "trips": 41,
+              "valid_checkouts": 14,
+              "valid_rate_pct": 34.15,
+              "total_extra_searches": 27,
+              "substitutes_offered": 0,
+              "substitutes_accepted": 0
+            },
+            {
+              "shopper_profile": "brand_loyal",
+              "arm": "B",
+              "trips": 41,
+              "valid_checkouts": 18,
+              "valid_rate_pct": 43.9,
+              "total_extra_searches": 3,
+              "substitutes_offered": 26,
+              "substitutes_accepted": 13
+            },
+            {
+              "shopper_profile": "budget_conscious",
+              "arm": "A",
+              "trips": 67,
+              "valid_checkouts": 25,
+              "valid_rate_pct": 37.31,
+              "total_extra_searches": 38,
+              "substitutes_offered": 0,
+              "substitutes_accepted": 0
+            },
+            {
+              "shopper_profile": "budget_conscious",
+              "arm": "B",
+              "trips": 67,
+              "valid_checkouts": 36,
+              "valid_rate_pct": 53.73,
+              "total_extra_searches": 13,
+              "substitutes_offered": 42,
+              "substitutes_accepted": 23
+            },
+            {
+              "shopper_profile": "flexible",
+              "arm": "A",
+              "trips": 32,
+              "valid_checkouts": 19,
+              "valid_rate_pct": 59.38,
+              "total_extra_searches": 28,
+              "substitutes_offered": 0,
+              "substitutes_accepted": 0
+            },
+            {
+              "shopper_profile": "flexible",
+              "arm": "B",
+              "trips": 32,
+              "valid_checkouts": 20,
+              "valid_rate_pct": 62.5,
+              "total_extra_searches": 6,
+              "substitutes_offered": 28,
+              "substitutes_accepted": 21
+            },
+            {
+              "shopper_profile": "impatient",
+              "arm": "A",
+              "trips": 160,
+              "valid_checkouts": 61,
+              "valid_rate_pct": 38.13,
+              "total_extra_searches": 44,
+              "substitutes_offered": 0,
+              "substitutes_accepted": 0
+            },
+            {
+              "shopper_profile": "impatient",
+              "arm": "B",
+              "trips": 160,
+              "valid_checkouts": 103,
+              "valid_rate_pct": 64.38,
+              "total_extra_searches": 6,
+              "substitutes_offered": 99,
+              "substitutes_accepted": 68
+            }
+          ],
+          "stockout_subset": [
+            {
+              "arm": "A",
+              "stockout_trips": 225,
+              "recovered_checkouts": 52,
+              "recovery_rate_pct": 23.11,
+              "avg_extra_searches": 0.609,
+              "offered": 0,
+              "accepted": 0
+            },
+            {
+              "arm": "B",
+              "stockout_trips": 225,
+              "recovered_checkouts": 110,
+              "recovery_rate_pct": 48.89,
+              "avg_extra_searches": 0.124,
+              "offered": 195,
+              "accepted": 125
+            }
+          ]
+        }
+      }
+    }
+  }
+}
