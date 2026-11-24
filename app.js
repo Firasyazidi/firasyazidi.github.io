@@ -137,7 +137,7 @@ function renderProjects() {
     const demoLabel = p.demo_label ? p.demo_label[L] : btns.demo;
     const adrOpen = state.openAdr === p.id;
     return `
-      <article class="panel-card">
+      <article class="panel-card" id="project-${esc(p.id)}">
         <div class="card-header">
           <div>
             <div class="project-sub">${esc(p.subtitle[L])}</div>
@@ -200,7 +200,7 @@ function renderNotes() {
   els.notesList.innerHTML = state.notes.map((n) => {
     const open = state.openNote === n.id;
     return `
-      <article class="panel-card">
+      <article class="panel-card" id="note-${esc(n.id)}">
         <button type="button" class="note-trigger" data-note="${esc(n.id)}" aria-expanded="${open}">
           <h3 class="card-title">${esc(n.title[L])}</h3>
           <span class="card-meta">${esc(n.tag)} · ${esc(n.read_time)} ${open ? "▲" : "▼"}</span>
@@ -276,6 +276,10 @@ async function init() {
   renderAll();
   setupScrollSpy();
   setupInteractions();
+  if (window.location.hash) {
+    const target = document.querySelector(window.location.hash);
+    if (target) target.scrollIntoView({ behavior: "instant", block: "start" });
+  }
 }
 
 init();
