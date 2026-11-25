@@ -6,8 +6,8 @@
       "period": { "en": "Jun 2026 – Dec 2026", "fr": "Juin 2026 – Déc. 2026" },
       "role": { "en": "AI Engineer Intern", "fr": "AI Engineer Intern" },
       "summary": {
-        "en": "Audited 67.6M fault-code occurrences across 12 months with Python, SQL, Polars, and Databricks. Built Fault Code Insights in Notion, annotated 1,069 codes across 56 sources, and raised macro F1 from 0.678 to 0.734 combining TF-IDF + BERT embeddings (MLflow). Achieved 65.4% Automation Rate at 95% precision (Alert Score 0.847) and deployed an end-to-end Databricks pilot with low-confidence human review routing.",
-        "fr": "Audité 67,6 M d’occurrences de codes de panne sur 12 mois avec Python, SQL, Polars et Databricks. Créé Fault Code Insights dans Notion, annoté 1 069 codes de 56 sources et porté le macro F1 de 0,678 à 0,734 en combinant TF-IDF + embeddings BERT (MLflow). Atteint 65,4 % d’Automation Rate à 95 % de précision (Alert Score 0,847) et déployé un pilote Databricks avec routage vers revue humaine."
+        "en": "Equipment Data Platform (EDP) centralizing multi-OEM telematics data for industrial & construction fleets. Audited 67.6M fault-code occurrences across 12 months with Python, SQL, Polars, and Databricks. Built Fault Code Insights in Notion, annotated 1,069 codes across 56 sources, and raised macro F1 from 0.678 to 0.734 combining TF-IDF + BERT embeddings (MLflow). Achieved 65.4% Automation Rate at 95% precision (Alert Score 0.847) and deployed an end-to-end Databricks pilot with low-confidence human review routing.",
+        "fr": "Plateforme SaaS de données d’équipements (EDP) centralisant la télématique multi-constructeurs des flottes industrielles et BTP. Audité 67,6 M d’occurrences de codes de panne sur 12 mois avec Python, SQL, Polars et Databricks. Créé Fault Code Insights dans Notion, annoté 1 069 codes de 56 sources et porté le macro F1 de 0,678 à 0,734 en combinant TF-IDF + embeddings BERT (MLflow). Atteint 65,4 % d’Automation Rate à 95 % de précision (Alert Score 0,847) et déployé un pilote Databricks avec routage vers revue humaine."
       },
       "tags": ["Python", "Databricks", "Polars", "SQL", "BERT", "MLflow"]
     },
@@ -17,8 +17,8 @@
       "period": { "en": "Apr 2025 – Aug 2025", "fr": "Avr. 2025 – Août 2025" },
       "role": { "en": "Machine Learning Engineer Intern", "fr": "Machine Learning Engineer Intern" },
       "summary": {
-        "en": "Built a modular Python ML pipeline predicting whether customers would recharge their mobile plan next month (data validation, feature engineering, training, inference). Selected XGBoost across 25 configurations per model (85% accuracy, 87% recall, 0.86 F1) with MLflow tracking, measured a +12% conversion lift in A/B testing, and delivered Power BI dashboards.",
-        "fr": "Construit un pipeline Python modulaire prédisant si un client allait recharger son forfait le mois suivant (validation, feature engineering, entraînement, inférence). Retenu XGBoost sur 25 configurations par modèle (85 % accuracy, 87 % recall, F1 0,86) avec MLflow, mesuré +12 % de conversion en test A/B et livré des tableaux de bord Power BI."
+        "en": "Tunisia's incumbent telecommunications operator (mobile, fixed-line, fiber broadband, and enterprise cloud). Built a modular Python ML pipeline predicting whether customers would recharge their mobile plan next month (data validation, feature engineering, training, inference). Selected XGBoost across 25 configurations per model (85% accuracy, 87% recall, 0.86 F1) with MLflow tracking, measured a +12% conversion lift in A/B testing, and delivered Power BI dashboards.",
+        "fr": "Opérateur historique de télécommunications en Tunisie (mobile, fixe, fibre et solutions cloud entreprises). Construit un pipeline Python modulaire prédisant si un client allait recharger son forfait le mois suivant (validation, feature engineering, entraînement, inférence). Retenu XGBoost sur 25 configurations par modèle (85 % accuracy, 87 % recall, F1 0,86) avec MLflow, mesuré +12 % de conversion en test A/B et livré des tableaux de bord Power BI."
       },
       "tags": ["Python", "XGBoost", "MLflow", "Scikit-learn", "A/B Testing", "Power BI"]
     },
@@ -28,8 +28,8 @@
       "period": { "en": "Jun 2024 – Aug 2024", "fr": "Juin 2024 – Août 2024" },
       "role": { "en": "Machine Learning Engineer Intern", "fr": "Machine Learning Engineer Intern" },
       "summary": {
-        "en": "Developed an e-commerce CRM backend (Python, Django, PostgreSQL) and trained an XGBoost scoring model (90% accuracy, 82% recall, 0.85 F1). Exposed real-time predictions via a containerized Docker REST API with unit and integration tests, driving a +10% conversion lift in A/B testing.",
-        "fr": "Développé le backend d’un CRM e-commerce (Python, Django, PostgreSQL) et entraîné un modèle de scoring XGBoost (90 % accuracy, 82 % recall, F1 0,85). Intégré le score en temps réel via API REST conteneurisée avec Docker et tests unitaires/d’intégration, mesurant +10 % de conversion en test A/B."
+        "en": "Consulting and e-commerce solutions company. Developed an e-commerce CRM backend (Python, Django, PostgreSQL) and trained an XGBoost scoring model (90% accuracy, 82% recall, 0.85 F1). Exposed real-time predictions via a containerized Docker REST API with unit and integration tests, driving a +10% conversion lift in A/B testing.",
+        "fr": "Société de conseil et solutions e-commerce. Développé le backend d’un CRM e-commerce (Python, Django, PostgreSQL) et entraîné un modèle de scoring XGBoost (90 % accuracy, 82 % recall, F1 0,85). Intégré le score en temps réel via API REST conteneurisée avec Docker et tests unitaires/d’intégration, mesurant +10 % de conversion en test A/B."
       },
       "tags": ["Python", "Django", "PostgreSQL", "XGBoost", "REST API", "Docker"]
     }
